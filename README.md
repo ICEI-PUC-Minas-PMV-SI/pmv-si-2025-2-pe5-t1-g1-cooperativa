@@ -7,18 +7,21 @@
 
 `Eixo: 5`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Esse projeto prevê a criação de uma infraestrutura de rede para uma cooperativa de crédito, a CrediValeDoce. Ele visa implementar uma infraestrutura de comunicação segura e escalável, capaz de suportar as operações financeiras e administrativas da instituição. A proposta tem o intuito de fazer a interligação das unidades (5 filiais e a matriz), garantindo a confidencialidade e integridade dos dados trafegados. 
+
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-* Nome completo do aluno 5
+* Carlos Alberto Vieira de Souza;
+* Laura de Freitas Mendes Losque;
+* Luana Horta de Souza;
+* Lucas Araújo Pacheco;
+* Odair Cordeiro Marra;
+* Victor Samuel Costa Pereira;
+* Yan Oyama Moura.
+
 
 ## Orientador
 
-* Nome completo do professor 1
-
+* Fábio Cordeiro.
 
