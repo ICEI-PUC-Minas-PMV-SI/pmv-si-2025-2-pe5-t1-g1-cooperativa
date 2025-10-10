@@ -1,29 +1,29 @@
 cff-version: 1.0.1
-message: Please cite this software using these metadata.
-title:
+message: "Please cite this software using these metadata."
+title: "Projeto de Infraestrutura de Redes da Cooperativa de Crédito (CRED VALE DOCE)"
 authors:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - family-names:
-    given-names:
-  - name-suffix: Professor XXXX
+  - family-names: "Vieira de Souza"
+    given-names: "Carlos Alberto"
+  - family-names: "Mendes Losque"
+    given-names: "Laura de Freitas"
+  - family-names: "Horta de Souza"
+    given-names: "Luana"
+  - family-names: "Araújo Pacheco"
+    given-names: "Lucas"
+  - family-names: "Cordeiro Marra"
+    given-names: "Odair"
+  - family-names: "Costa Pereira"
+    given-names: "Victor Samuel"
+  - family-names: "Oyama Moura"
+    given-names: "Yan"
+  - name-suffix: Professor Orientador
     affiliation: PUC Minas
-    family-names:
-    given-names:
+    family-names: "Cordeiro"
+    given-names: "Fábio"
 keywords:
   -
   -
-repository-code:
+repository-code: "https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-2-pe5-t1-g1-cooperativa"
 license: CC-BY-4.0
 version: 1.0.0
 date-released: 2023-06-30
