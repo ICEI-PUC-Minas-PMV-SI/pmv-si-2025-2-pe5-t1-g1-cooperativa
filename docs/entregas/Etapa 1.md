@@ -33,7 +33,7 @@ Diante desse cenário, a cooperativa de crédito exige um planejamento que envol
 ### 2.1 Descrição da Persona Jurídica
 
 #### 2.1.1 Nome da Cooperativa  
-**Cred Vale Doce**
+Cred Vale Doce
 
 #### 2.1.2 Slogan  
 “Onde cada cooperado é parte da solução.”
@@ -239,15 +239,21 @@ Gerente de cada Filial (5 no total) — reportam à Diretoria de Operações;
 Equipe de Atendimento ao Cooperado;  
 Suporte Local (TI básico, administrativo).
 
+---
+
 #### Figura 3.Organograma Matriz CRED VALE DOCE.
 <img width="640" height="337" alt="Screen Shot 2025-10-13 at 21 50 33" src="https://github.com/user-attachments/assets/f0938eac-6249-4e1a-a480-1284a82c12fa" />
 
 *Fonte: elaboração própria.*
 
+---
+
 #### Figura 4.Organograma Filial CRED VALE DOCE. 
 <img width="621" height="355" alt="Screen Shot 2025-10-13 at 21 53 52" src="https://github.com/user-attachments/assets/a876159e-0043-4c23-a2af-8c40421f80b7" />
 
 *Fonte: elaboração própria.*
+
+---
 
 #### 3.5.2 Localização Geográfica
 
