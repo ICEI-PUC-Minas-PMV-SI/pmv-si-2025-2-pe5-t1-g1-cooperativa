@@ -439,7 +439,16 @@ As redes foram segmentadas em **sub-redes Operacionais** e **sub-rede Públicas 
 
 ---
 
-### 3.7.5 Testes
+### 3.7.5 Planilha de Cálculo de Links
+
+#### Tabela 4. Tabela de Cálculo de Links de Dados de Internet CRED VALE DOCE.  
+<img width="1465" height="340" alt="Screen Shot 2025-10-15 at 00 14 14" src="https://github.com/user-attachments/assets/b9548a8c-09bb-410b-88aa-bd31a88a3062" />
+
+*Fonte: elaboração própria.*
+
+---
+
+### 3.7.6 Testes
 
 #### Conexão entre máquinas
 
