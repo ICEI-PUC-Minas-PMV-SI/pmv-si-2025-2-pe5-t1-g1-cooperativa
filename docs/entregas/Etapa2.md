@@ -15,9 +15,153 @@
 
 
 
-## 2.X.X Servidor WEB
+## 2.2.2 Servidor WEB
 
+### 2.2.2.1 Introdução
 
+O **Servidor Web (Apache HTTP Server)** é um serviço reponsável por hospedar e disponibilizar páginas e aplicações web acessíveis via navegador.
+
+No projeto da Cooperativa de Crédito, o servidor Web foi ajustado para concentrar o acesso dos funcionários da Matriz e Filiais a um painel de informações institucional.
+
+Através do Apache, é possível publicar sites, dashboards e sistemas internos que operam em rede local ou pela internet, com controle de acesso e fácil manutenção.
+
+---
+
+### 2.2.2.2 Topologia da Arquitetura
+
+**Tipo**: Centralizado
+**Rede VPC**: 172.31.0.0/16
+**Acesso permitido:**: 0.0.0.0/0 *(para testes - POC)*
+
+| Função | Nome da Instância | IPv4 Privado  | IPv4 Público  | Papel        |
+| ------ | ----------------- | ------------- | ------------- | ------------ |
+| Matriz | WEB-Server        | 172.31.23.242 | 34.227.47.125 | Servidor Web |
+
+> **Observação**: Ambiente configurado em uma instância **AWS EC2** do **tipo t3.micro**, executando **Ubuntu Server 22.04 LTS.**
+
+---
+
+### 2.2.2.3 Máquina Virtual na Nuvem
+
+Foi criada uma máquina virtual na nuvem (instância EC2) para atuar como Servidor Web da Matriz da Cooperativa de Crédito.
+
+A instância foi provisionada na AWS (Amazon Web Services) utilizando o Ubuntu Server 22.04 LTS como sistema operacional, dentro da mesma VPC (Virtual Private Cloud) que conecta as demais filiais.
+
+<img width="1917" height="926" alt="Image" src="https://github.com/user-attachments/assets/ec87c6a5-015d-43dc-98ee-3eca11fd329b" />
+
+A configuração foi realizada de forma que o Apache hospedasse os arquivos HTML na pasta padrão do serviço /var/www/html, permitindo o acesso via navegador web através do endereço público da instância.
+
+Para fins de prova de conceito (POC), a instância foi configurada com acesso SSH (porta 22) e HTTP (porta 80) liberados no grupo de segurança.
+
+> Essa máquina representa o **servidor web central** da Cooperativa, responsável por disponibilizar informações corporativas e documentos para as filiais de forma online.
+
+---
+
+### 2.2.2.4 Instalação e Configuração do Apache
+
+#### a) Atualização dos pacotes
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+#### b) Instalação do Apache
+
+```bash
+sudo apt install apache2 -y
+```
+
+#### c) Habilitando Serviço
+
+```bash
+sudo systemctl enbale apache2 
+```
+
+#### d) Iniciando Serviço
+
+```bash
+sudo systemctl start apache2
+```
+
+#### e) Verificação do serviço
+
+```bash
+sudo systemctl status apache2
+```
+
+---
+
+### 2.2.2.5 Configuração do Diretório e Página Web
+
+O Apache, por padrão, utiliza o diretório /var/www/html como raiz do site.
+
+Para este projeto, foi mantido o diretório padrão e substituído o arquivo inicial index.html por uma página personalizada.
+
+#### a) Remoção do arquivo padrão
+
+```bash
+sudo rm /var/www/html/index.html
+```
+
+#### b) Criação da nova página HTML
+
+```bash
+sudo nano /var/www/html/index.html
+```
+
+#### c) Conteúdo
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servidor</title>
+</head>
+<body>
+    <h1>Teste Servidor</h1>
+</body>
+</html>
+```
+
+#### d) Permissões de acesso
+
+```bash
+sudo chown -R www-data:www-data /var/www/html
+sudo chmod -R 755 /var/www/html
+```
+
+#### e) Reinício do serviço
+
+```bash
+sudo systemctl restart apache2
+```
+---
+
+### 2.2.2.6 Teste de Funcionamento e Acesso Web
+
+Para validar o funcionamento do servidor, o acesso foi realizado diretamente pelo navegador, utilizando o IP público da instância EC2:
+
+```cpp
+http://34.227.47.125/
+```
+
+A página HTML personalizada foi exibida corretamente, confirmando o pleno funcionamento do serviço Apache.
+
+---
+
+### 2.2.2.7 Configuração de Rede e Segurança
+
+A conectividade entre a instância e os usuários externos dependeu das configurações de rede na **AWS**:
+
+| Serviço | Porta | Descrição     | Origem Permitida |
+| ------- | ----- | ------------- | ---------------- |
+| SSH     | 22    | Acesso remoto | 0.0.0.0/0        |
+| HTTP    | 80    | Acesso web    | 0.0.0.0/0        |
+| ICMP    | -     | Ping/teste    | 0.0.0.0/0        |
+
+>Em ambiente de produção, recomenda-se *restringir o acesso HTTP a endereços específicos* e utilizar *HTTPS (porta 443) com certificado SSL*.
 
 ## 2.X.X Serviço DNS (Domain Name System)
 
