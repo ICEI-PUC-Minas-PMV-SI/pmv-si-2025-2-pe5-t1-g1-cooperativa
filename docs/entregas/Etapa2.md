@@ -161,7 +161,7 @@ A conectividade entre a instância e os usuários externos dependeu das configur
 | HTTP    | 80    | Acesso web    | 0.0.0.0/0        |
 | ICMP    | -     | Ping/teste    | 0.0.0.0/0        |
 
->Em ambiente de produção, recomenda-se *restringir o acesso HTTP a endereços específicos* e utilizar *HTTPS (porta 443) com certificado SSL*.
+>Em ambiente de produção, recomenda-se **restringir o acesso HTTP a endereços específicos** e utilizar **HTTPS (porta 443) com certificado SSL**.
 
 ## 2.X.X Serviço DNS (Domain Name System)
 
