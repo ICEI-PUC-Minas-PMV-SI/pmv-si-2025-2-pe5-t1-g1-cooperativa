@@ -292,7 +292,7 @@ Significado das alterações:
 write_enable=YES: habilita escrita e upload de arquivos pelo usuário.
 
 userlist_deny=NO: somente usuários listados podem acessar
-suer list local
+userlist_file=/etc/vsftpd/user_list: indica local onde está o arquivo com a lista de usuários permitidos.
 
 tcp_wrappers=NO: possibilita a listagem de arquivos.
 
