@@ -177,6 +177,179 @@ A conectividade entre a instância e os usuários externos dependeu das configur
 
 ## 2.2.4 Serviço FTP (File Transfer Protocol)
 
+### 2.2.4.1 Introdução
+
+O File Transfer Protocol (FTP) é um protocolo padrão para transferência de arquivos entre sistemas, que garante a entrega dos arquivos e permite controle de acesso.
+
+O serviço foi configurado com um servidor atilizando o vsftpd (Very Secute FTP Daemon), e dois clientes, um Ubuntu e um Windows utilizando o FileZilla. Dessa forma foi possível demonstrar a transferência de arquivos entre diferentes sistemas operacionais.
+
+### 2.2.4.2 Topologia da Arquitetura
+
+| Função            | Nome          | IPv4 Privado  | Ferramenta    |
+|-------------------|---------------|---------------|---------------|
+| Servidor FTP      | UbuntuSRV01T  | 172.31.29.21  | vsftpd        |
+| Cliente Ubuntu    | UbuntuCliente | 172.31.29.222 | ftp           |
+| Cliente Windows   | Máquina local | externo       | FileZilla     |
+
+> **Observação:** O "UbuntuSRV01T" e "UbuntuCliente" são instâncias na AWS EC2 do tipo t2.micro com Ubuntu Server 24.04. Já a "Máquina local" é um computador pessoal com Windows 11.
+
+### 2.2.4.3 Máquinas Utilizadas
+
+Foram criadas duas máquinas virtuais, utilizando o serviço EC2  na AWS (Amazon WEB Services), para a configuração e testes do serviço FTP. Sendo elas, uma instância server (UbuntuSRV01T) responsável por hospedar o serviço FTP via vsftpd. E uma instância cliente (UbuntuCliente) utilizada para testes de conexão e comandos via terminal.
+
+Além disso foi utilizada um computador pessoal com Windows 11, empregada para validar o acesso via interface gráfica utilizando o cliente FileZilla.
+
+<img width="1917" height="1031" alt="print1" src="https://github.com/user-attachments/assets/a59424ed-834a-40e0-90b0-3db5c2aaab9f" />
+
+### 2.2.4.4 Configuração do Servidor FTP (UbuntuSRV01T)
+
+#### a) Atualização da máquina e instalação do serviço
+
+```bash
+sudo apt update 
+sudo apt upgrade
+sudo apt update
+sudo apt install vsftpd -y
+sudo systemctl enable vsftpd
+```
+As três primeiras linhas se referem à atualização da máquina, a quarta à instalação do vsftpd, e a quinta por sua vez habilita o vsftpd iniciar sempre que a máquina reiniciar.
+
+#### b) Liberação de portas
+
+Foi realizada a liberação da porta para o SSH (22) para não se perder a conexão com a máquina, a ativação do firewall, e por fim a liberação das portas para o ftp, 20, 21, 990, e o intervalo de 30000 a 31000 para o uso do modo passivo. 
+```bash
+sudo ufw allow ssh
+sudo ufw enable
+sudo ufw allow 20,21,990/tcp
+sudo ufw allow 30000:31000/tcp
+```
+
+<img width="482" height="218" alt="print2" src="https://github.com/user-attachments/assets/c0ea3598-b729-4101-8ff7-e7c756c78178" />
+
+Pela máquina ser uma instância na AWS é necessário liberar as portas também no grupo de segurança da instância.
+
+<img width="1209" height="244" alt="print3" src="https://github.com/user-attachments/assets/a3b886e5-66cc-4bcc-bf17-1f5cd14b326f" />
+
+> **Observação:** Acesso permitido a todos com "0.0.0.0/0" apenas por ser ambiente de teste e prova de conceito.
+
+#### c) Criação de usuário
+
+```bash
+sudo useradd srvWeb
+sudo passwd srvWeb
+```
+
+#### d) Criação de diretórios e arquivos necessários
+
+```bash
+sudo mkdir /etc/vsftpd
+```
+
+Foi utilizado o editor VIM para criar e já editar o arquivo com os nomes dos usuários autorizados com o comando a seguir. Ao editar o arquivo é necessário escrever o nome de cada usuário no arquivo, um por linha.
+
+```bash
+sudo vim /etc/vsftpd/user_list
+```
+
+Continuando então com a criação e permissionamento das pastas de cada usuário.
+
+```bash
+sudo mkdir -p /home/srvWeb/dados
+sudo chown srvWeb:srvWeb /home/srvWeb/dados
+sudo chown srvWeb:srvWeb /home/srvWeb
+```
+
+#### e) Configuração do arquivo /etc/vsftpd.conf
+
+Ao editar o arquivo de configuração do vsftpd foi retirada a marcação de comentário da linha a seguir:
+
+```bash
+write_enable=YES
+```
+
+E adicionado o seguinte no fim do arquivo.
+
+```bash
+userlist_deny=NO
+userlist_file=/etc/vsftpd/user_list
+
+tcp_wrappers=NO
+
+local_root=/home/srvWeb/dados
+
+chroot_local_user=YES
+
+allow_writeable_chroot=YES
+
+pasv_enable=YES
+pasv_min_port=30000
+pasv_max_port=31000
+pasv_address=18.212.252.103
+```
+
+Significado das alterações:
+
+write_enable=YES: habilita escrita e upload de arquivos pelo usuário.
+
+userlist_deny=NO: somente usuários listados podem acessar
+suer list local
+
+tcp_wrappers=NO: possibilita a listagem de arquivos.
+
+local_root=/home/srvWeb/dados: entrega a pasta que deve ser carregada ao logar com o usuário, deve ser indicada para cada usuário criado.
+
+chroot_local_user=YES: ter uma pasta home para cada usuário logado.
+
+allow_writeable_chroot=YES: permite ao usuário escrever nesse local.
+
+pasv_enable=YES: habilita o modo passivo.
+
+pasv_min_port=30000: indica o inicio do intervalo de portas destinadas para o modo passivo.
+
+pasv_max_port=31000: indica o fim do intervalo de portas destinadas para o modo passivo.
+
+pasv_address=18.212.252.103: aponta o ip da máquina do servidor.
+
+> **Observação:** O ip colocado no "pasv_address" foi o público para que fosse encontrado por maquinas fora da rede que o servidor se encontra. Por padrão no EC2 esse ip sempre é alterado ao reinciar a instância, logo nesse ambiente de teste devemos nos atentar de alterar esse valor sempre que ele mudar para que tudo funcione normalmente.
+
+#### f) Reinicialização do serviço
+
+```bash
+sudo systemctl restart vsftpd
+```
+
+### 2.2.4.5 Configuração e testes do Cliente (UbuntuCliente e Máquina local)
+
+#### a) Cliente Ubuntu (ftp)
+
+Foi realizada apenas a atualização da máquina.
+
+```bash
+sudo apt update
+sudo apt upgrade
+sudo apt update
+```
+
+Foi realizada a conexão com o servidor com o comando a seguir.
+
+```bash
+ftp 18.212.252.103
+```
+
+Após a conexão é solicitada o login e senha do usuário, após a validação foi testado a listagem e criação de um diretório com os comandos a seguir.
+
+```bash
+ls
+mkdir Teste
+```
+
+<img width="608" height="213" alt="print4" src="https://github.com/user-attachments/assets/7d556b18-afd6-4e2f-8b5e-5d9603b00baa" />
+
+#### b) Cliente Windows (FileZilla)
+
+Após a instação do software Filezilla é necessário indicar, nos campos destacados na imagem a seguir, o ip do servidor, login e senha do usuário. Com, a conexão estabelecida as pastas e arquivos do diretório serão listados e poderão ser manipulados.
+
+<img width="1163" height="638" alt="print5" src="https://github.com/user-attachments/assets/ad577f5e-b0fc-4b60-8dda-4c6c4e751a43" />
 
 
 ## 2.2.5 Serviço NFS (Network File System)
