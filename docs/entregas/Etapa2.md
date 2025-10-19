@@ -3,16 +3,288 @@
 
 # 2.1 Serviços em Máquinas Virtuais Locais pelo VirtualBox
 
+## 2.1.1 Servidor DHCP (Dynamic Host Configuration Protocol)
 
+### 2.2.2.1 Introdução
+
+
+O **Servidor DHCP (Dynamic Host Configuration Protocol)** 
+
+
+
+
+---
+
+### 2.2.2.2 Topologia da Arquitetura
+
+**Tipo**: Centralizado
+**Rede VPC**: 172.31.0.0/16
+**Acesso permitido:**: 0.0.0.0/0 *(para testes - POC)*
+
+| Função | Nome da Instância | IPv4 Privado  | IPv4 Público  | Papel        |
+| ------ | ----------------- | ------------- | ------------- | ------------ |
+| Matriz | DHCP Server       | xxxxxxx       | xxxxxxx       | DHCP Server  |
+| Cliente| Cliente Windows   | xxxxxxx       | xxxxxxx       | DHCP Cliente |
+
+> **Observação**: Ambiente configurado em **Ubuntu Server 22.04 LTS.** e **Windows Server 2025.**
+
+---
+
+### 2.2.2.3 Máquina Virtual
+
+Foi criada uma máquina virtual local no Virtual Box para atuar como Servidor DHCP da Matriz da Cooperativa de Crédito.
+
+A instância foi feita utilizando o Ubuntu Server 22.04 LTS como sistema operacional e com Windows Server 2025 como cliente que irá se conectar a rede.
+
+<img width="1917" height="926" alt="Image" src="https://github.com/user-attachments/assets/ec87c6a5-015d-43dc-98ee-3eca11fd329b" />
+
+A configuração foi realizada de forma que os arquivos estivessem na pasta /etc/netplan/00-installer-config.yaml, permitindo que o server tenha acesso as configurações estipuladas.
+
+Insira aqui as conf utilizadas.
+
+> Essa máquina representa o **servidor DHCP** da Cooperativa, responsável por disponibilizar informações de IP para os computadores que se conectam ao server.
+
+> A segunda máquina representa o **cliente DHCP** da Cooperativa, que se conecta a faixa de IP disponibilizada pelo server.
+
+---
+
+### 2.2.2.4 Instalação e Configuração do Apache
+
+#### a) Atualização dos pacotes
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+#### b) Instalação do Apache
+
+```bash
+sudo apt install apache2 -y
+```
+
+#### c) Habilitando Serviço
+
+```bash
+sudo systemctl enbale apache2 
+```
+
+#### d) Iniciando Serviço
+
+```bash
+sudo systemctl start apache2
+```
+
+#### e) Verificação do serviço
+
+```bash
+sudo systemctl status apache2
+```
+
+---
+
+### 2.2.2.5 Configuração do Diretório e Página Web
+
+O Apache, por padrão, utiliza o diretório /var/www/html como raiz do site.
+
+Para este projeto, foi mantido o diretório padrão e substituído o arquivo inicial index.html por uma página personalizada.
+
+#### a) Remoção do arquivo padrão
+todos os trem q não é o status e os testes no windows
+```bash
+sudo rm /var/www/html/index.html
+```
+
+#### b) Criação da nova página HTML
+
+```bash
+sudo nano /var/www/html/index.html
+```
+
+#### c) Conteúdo
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servidor</title>
+</head>
+<body>
+    <h1>Teste Servidor</h1>
+</body>
+</html>
+```
+
+#### d) Permissões de acesso
+
+```bash
+sudo chown -R www-data:www-data /var/www/html
+sudo chmod -R 755 /var/www/html
+```
+
+#### e) Reinício do serviço
+
+```bash
+sudo systemctl restart apache2
+```
+---
+---
+
+### 2.2.2.6 Teste de Funcionamento e Acesso Web
+
+Para validar o funcionamento do servidor DHCP, o acesso foi realizado diretamente pelo usuário Windows, utilizando o IP e DNS automáticos.
+
+```cpp
+http://34.227.47.125/
+```
+
+A página HTML personalizada foi exibida corretamente, confirmando o pleno funcionamento do serviço Apache.
+
+---
+
+## 2.1.2 Servidor AD (Active Directory)
+
+### 2.1.2.1 Introdução
+
+
+O **Servidor DHCP (Dynamic Host Configuration Protocol)** 
+
+
+
+
+---
+
+### 2.2.2.2 Topologia da Arquitetura
+
+**Tipo**: Centralizado
+**Rede VPC**: 172.31.0.0/16
+**Acesso permitido:**: 0.0.0.0/0 *(para testes - POC)*
+
+| Função | Nome da Instância | IPv4 Privado  | IPv4 Público  | Papel        |
+| ------ | ----------------- | ------------- | ------------- | ------------ |
+| Matriz | DHCP Server       | xxxxxxx       | xxxxxxx       | DHCP Server  |
+| Cliente| Cliente Windows   | xxxxxxx       | xxxxxxx       | DHCP Cliente |
+
+> **Observação**: Ambiente configurado em **Ubuntu Server 22.04 LTS.** e **Windows Server 2025.**
+
+---
+
+### 2.2.2.3 Máquina Virtual
+
+Foi criada uma máquina virtual local no Virtual Box para atuar como Servidor DHCP da Matriz da Cooperativa de Crédito.
+
+A instância foi feita utilizando o Ubuntu Server 22.04 LTS como sistema operacional e com Windows Server 2025 como cliente que irá se conectar a rede.
+
+<img width="1917" height="926" alt="Image" src="https://github.com/user-attachments/assets/ec87c6a5-015d-43dc-98ee-3eca11fd329b" />
+
+A configuração foi realizada de forma que os arquivos estivessem na pasta /etc/netplan/00-installer-config.yaml, permitindo que o server tenha acesso as configurações estipuladas.
+
+Insira aqui as conf utilizadas.
+
+> Essa máquina representa o **servidor DHCP** da Cooperativa, responsável por disponibilizar informações de IP para os computadores que se conectam ao server.
+
+> A segunda máquina representa o **cliente DHCP** da Cooperativa, que se conecta a faixa de IP disponibilizada pelo server.
+
+---
+
+### 2.2.2.4 Instalação e Configuração do Apache
+
+#### a) Atualização dos pacotes
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+#### b) Instalação do Apache
+
+```bash
+sudo apt install apache2 -y
+```
+
+#### c) Habilitando Serviço
+
+```bash
+sudo systemctl enbale apache2 
+```
+
+#### d) Iniciando Serviço
+
+```bash
+sudo systemctl start apache2
+```
+
+#### e) Verificação do serviço
+
+```bash
+sudo systemctl status apache2
+```
+
+---
+
+### 2.2.2.5 Configuração do Diretório e Página Web
+
+O Apache, por padrão, utiliza o diretório /var/www/html como raiz do site.
+
+Para este projeto, foi mantido o diretório padrão e substituído o arquivo inicial index.html por uma página personalizada.
+
+#### a) Remoção do arquivo padrão
+todos os trem q não é o status e os testes no windows
+```bash
+sudo rm /var/www/html/index.html
+```
+
+#### b) Criação da nova página HTML
+
+```bash
+sudo nano /var/www/html/index.html
+```
+
+#### c) Conteúdo
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servidor</title>
+</head>
+<body>
+    <h1>Teste Servidor</h1>
+</body>
+</html>
+```
+
+#### d) Permissões de acesso
+
+```bash
+sudo chown -R www-data:www-data /var/www/html
+sudo chmod -R 755 /var/www/html
+```
+
+#### e) Reinício do serviço
+
+```bash
+sudo systemctl restart apache2
+```
+---
+---
+
+### 2.2.2.6 Teste de Funcionamento e Acesso Web
+
+Para validar o funcionamento do servidor DHCP, o acesso foi realizado diretamente pelo usuário Windows, utilizando o IP e DNS automáticos.
+
+```cpp
+http://34.227.47.125/
+```
+
+A página HTML personalizada foi exibida corretamente, confirmando o pleno funcionamento do serviço Apache.
+
+---
 
 
 # 2.2 Serviços em Máquinas Virtuais na Nuvem pela AWS
-
-
-
-
-## 2.X.X Servidor DHCP (Dynamic Host Configuration Protocol)
-
 
 
 ## 2.2.2 Servidor WEB
