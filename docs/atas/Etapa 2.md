@@ -59,10 +59,10 @@ Cada membro ficou responsável pela configuração de um serviço inicialmente:
 | Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 5:00 h | Reunião para ajudar quem ainda não havia baixado as máquinas virtuais. | 25/09 |
 | Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 2:30 h | Reunião para entrar em no github e ver progresso. | 06/10 |
 | Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 3:00 h | Reunião para definir o padrão do trabalho e dos vídeos. | 08/10 |
-| Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 1:30 h | Reunião para atualizações. | 13/08 |
+| Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 1:30 h | Reunião para atualizações. | 13/10 |
 
 
-# Cronograma de Atividades Individuais – 2ª Etapa
+# Atividades Individuais – 2ª Etapa
 
 - **Carlos** →  
 - **Luana** → fiz o servidor e cliente AD e a documentação do mesmo, ajudei a Laura no servidor DHCP e editei o video da entrega.
@@ -70,4 +70,4 @@ Cada membro ficou responsável pela configuração de um serviço inicialmente:
 - **Lucas** →  
 - **Yan** →   
 - **Victor** →  
-- **Laura** →   
+- **Laura** → fiz o servidor e o cliente DHCP  
