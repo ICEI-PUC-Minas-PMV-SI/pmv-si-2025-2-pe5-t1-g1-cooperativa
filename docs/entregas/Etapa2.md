@@ -163,7 +163,7 @@ O **Servidor AD (Active Directory)** na CredValeDoce foi pensado para ser uma es
 
 Foi criada uma máquina virtual local no Virtual Box para atuar como Servidor AD da Cooperativa de Crédito.
 
-A instância foi feita utilizando o Windows Server 2025 como sistema operacional e com Windows Pro 2012 como usuário que irá se conectar a rede.
+A instância foi feita utilizando o Windows Server 2025 como sistema operacional e com Windows 7 Pro 2012 como usuário que irá se conectar a rede.
 
 <img width="1917" height="926" alt="Image" src="https://github.com/user-attachments/assets/ec87c6a5-015d-43dc-98ee-3eca11fd329b" />
 
@@ -182,68 +182,45 @@ As configurações de IP utilizadas foram IP 172.16.100.20, a máscara de sub-re
 
 #### a) Mudança do nome do servidor
 
-```bash
-sudo apt update && sudo apt upgrade -y
-```
 
-#### b) Instalação DNS
+#### b) Instalação DNS e AD DS
 
-```bash
-sudo apt install apache2 -y
-```
 
-#### c) Instalação AD DS
+#### c) Promoção do servidor a controlador de domínio
 
-```bash
-sudo systemctl enbale apache2 
-```
 
-#### d) Promoção do servidor a controlador de domínio
+#### d) Adição de nova floresta credvaledoce.coop
 
-```bash
-sudo systemctl start apache2
-```
 
-#### e) Adição de nova floresta credvaledoce.coop
+#### e) Adição de unidades organizacionais em ferramentas administrativas
 
-```bash
-sudo systemctl status apache2
-```
 
-#### f) Adição de unidades organizacionais em ferramentas administrativas
+#### f) Criação de usuário
 
-```bash
-sudo systemctl status apache2
-```
 
-#### g) Criação de usuário
-
-```bash
-sudo systemctl status apache2
-```
 #### g) Delegação de controle ao usuário
 
-```bash
-sudo systemctl status apache2
-```
+
 #### h) Gerenciamento de política de grupo
 
-```bash
-sudo systemctl status apache2
-```
+
 ---
 
 
 ### 2.2.2.6 Teste de Funcionamento e Acesso Usuário Windows 2012
 
-Para validar o funcionamento do servidor AD, o teste foi realizado pelo usuário Windows 2012, que como podemos observar ele encontra o domínio CREDVALEDOCE.
-```cpp
-http://34.227.47.125/
-```
+Para validar o funcionamento do servidor AD, o teste foi realizado pelo usuário Windows 7 Pro 2012, que como podemos observar ele encontra o domínio CREDVALEDOCE.
+
+
+
 
 Foi realizado o cadastro do usuário na rede.
 
+
+
 Podemos perceber que as politicas de grupo estão em funcionamento porque ele não consegue entrar no painel de controle e o CMD está oculto. 
+
+
 
 ---
 
