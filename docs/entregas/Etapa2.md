@@ -1,46 +1,40 @@
 # 2 PREPARAÇÃO DO AMBIENTE EM NUVEM E VIRTUALIZAÇÃO LOCAL
 
+# 2.1 Serviços em Máquinas Virtuais Locais pelo VirtualBox 
 
-# 2.1 Serviços em Máquinas Virtuais Locais pelo VirtualBox
+## 2.1.1 Servidor DHCP (Dynamic Host Configuration Protocol) 
 
-## 2.1.1 Servidor DHCP (Dynamic Host Configuration Protocol)
+### 2.2.2.1 Introdução 
 
-### 2.2.2.1 Introdução
+O **Servidor DHCP (Dynamic Host Configuration Protocol)** é um protocolo de rede utilizado para atribuir automaticamente endereços IP e outras configurações de rede, como máscara de sub-rede, gateway padrão e servidores DNS, aos dispositivos conectados. 
 
+No contexto da Cooperativa de Crédito, foi configurada uma arquitetura em que uma matriz atua como Servidor DHCP e as filiais operam como Cliente DHCP. 
 
-O **Servidor DHCP (Dynamic Host Configuration Protocol)** 
+Com essa configuração ele simplifica a administração da rede, evitando a necessidade de configuração manual em cada máquina e garantindo que não haja conflitos de endereços IP entre os dispositivos. 
 
+--- 
 
+### 2.2.2.2 Topologia da Arquitetura 
 
-
----
-
-### 2.2.2.2 Topologia da Arquitetura
-
-**Tipo**: Centralizado
-**Rede VPC**: 172.31.0.0/16
-**Acesso permitido:**: 0.0.0.0/0 *(para testes - POC)*
-
-| Função | Nome da Instância | IPv4 Privado  | IPv4 Público  | Papel        |
-| ------ | ----------------- | ------------- | ------------- | ------------ |
-| Matriz | DHCP Server       | xxxxxxx       | xxxxxxx       | DHCP Server  |
-| Cliente| Cliente Windows   | xxxxxxx       | xxxxxxx       | DHCP Cliente |
+**Tipo**: Centralizado 
+**Rede VPC**: 172.31.0.0/16 
+**Acesso permitido:**: 0.0.0.0/0 *(para testes - POC)* 
+| Função | Nome da Instância | IPv4 Privado  |     Papel     | 
+| ------ | ----------------- | ------------- | ------------- | 
+| Matriz | DHCP Server       | 192.168.1.1/24| DHCP Server   | 
+| Cliente| Cliente Windows   | 192.168.1.51  | DHCP Cliente  | 
 
 > **Observação**: Ambiente configurado em **Ubuntu Server 22.04 LTS.** e **Windows Server 2025.**
 
 ---
 
-### 2.2.2.3 Máquina Virtual
+### 2.2.2.3 Máquina Virtual 
 
-Foi criada uma máquina virtual local no Virtual Box para atuar como Servidor DHCP da Matriz da Cooperativa de Crédito.
+Foi criada uma máquina virtual local no Virtual Box para atuar como Servidor DHCP da Matriz da Cooperativa de Crédito. A instância foi feita utilizando o Ubuntu Server 22.04 LTS como sistema operacional e com Windows Server 2025 como cliente que irá se conectar a rede. 
 
-A instância foi feita utilizando o Ubuntu Server 22.04 LTS como sistema operacional e com Windows Server 2025 como cliente que irá se conectar a rede.
+<img width="1917" height="926" alt="Image" src="https://github.com/user-attachments/assets/ec87c6a5-015d-43dc-98ee-3eca11fd329b" /> 
 
-<img width="1917" height="926" alt="Image" src="https://github.com/user-attachments/assets/ec87c6a5-015d-43dc-98ee-3eca11fd329b" />
-
-A configuração foi realizada de forma que os arquivos estivessem na pasta /etc/netplan/00-installer-config.yaml, permitindo que o server tenha acesso as configurações estipuladas.
-
-Insira aqui as conf utilizadas.
+A configuração foi realizada de forma que os arquivos estivessem na pasta /etc/netplan/00-installer-config.yaml, permitindo que o server tenha acesso as configurações estipuladas. Endereços de IP: **192.168.1.1/24**, Gateway padrão: **10.0.2.15**, DNS´s padrão primário e secundários: **8.8.8.8, 1.1.1.1**. 
 
 > Essa máquina representa o **servidor DHCP** da Cooperativa, responsável por disponibilizar informações de IP para os computadores que se conectam ao server.
 
@@ -48,98 +42,96 @@ Insira aqui as conf utilizadas.
 
 ---
 
-### 2.2.2.4 Instalação e Configuração do Apache
+### 2.2.2.4 Configuração do Servidor DHCP 
 
-#### a) Atualização dos pacotes
+#### a) Visualização das Interfaces do Sistema: 
 
-```bash
-sudo apt update && sudo apt upgrade -y
+```
+bash ifconfig 
+``` 
+
+imagem aqui 
+
+A tela do comando ifconfig no **Ubuntu**, mostra informações detalhadas sobre todas as interfaces de rede do sistema, incluindo: Nome da Interface, Endereço IPv4, Máscara de sub-rede, Endereço IPv6, Endereço MAC, Status da Interface, Pacotes enviados e recebidos, e Informações de broadcast e multicast. 
+Redes configuradas: 
+**enp0s3** - IP 10.0.2.15 
+**enp0s8** - IP 192.168.1.1 
+
+#### b) Instalação do Serviço 
+
+```
+bash sudo apt install isc-dhcp-server -y 
+``` 
+
+#### c) Configuração do Arquivo /etc/netplan: 
+
+```
+bash sudo nano /etc/netplan00-instaler-config.yaml
 ```
 
-#### b) Instalação do Apache
+imagem aqui
 
-```bash
-sudo apt install apache2 -y
+Para garantir que o servidor mantenha IP fixo na sua interface, foi configurado o arquivo de rede **/etc/netplan00-instaler-config.yaml**. Na tela, vemos duas interfaces de rede configuradas: 
+
+**enp0s3**: está com o DHCP ativado (dhcp4: true), ou seja, o endereço IP é obtido automaticamente do servidor DHCP. 
+**enp0s8**: está com o DHCP desativado (dhcp4: false), então foi configurado manualmente com: 
+**Endereço IP fixo**: 192.168.1.1/24 
+**Gateway**: 10.0.2.15 
+**Servidores DNS**: 8.8.8.8 e 1.1.1.1 
+
+#### d) Configuração do Serviço: 
+
 ```
+bash sudo nano /etc/dhcp/dhcpd.conf
+``` 
 
-#### c) Habilitando Serviço
+imagem aqui 
 
-```bash
-sudo systemctl enbale apache2 
+A tela mostra a configuração do serviço DHCP através do arquivo **/etc/dhcp/dhcpd.conf**, foi configurada a **rede** 192.168.1.0 com **máscara** 255.255.255.0, onde o **range de IP’s** vai de 192.168.1.11 a 192.168.1.254, o **gateway** definido foi 192.168.1.1 e os **servidores DNS´s** são 8.8.8.8, 1.1.1.1 e o **domínio** example.org. 
+
+#### e) Configuração da Interface de Rede: 
+
 ```
-
-#### d) Iniciando Serviço
-
-```bash
-sudo systemctl start apache2
+bash sudo nano /etc/default/isc-dhcp-server
 ```
+imagem aqui 
 
-#### e) Verificação do serviço
+Para definir qual interface de rede será responsável por distribuir o range de IP’s configurado no servidor DHCP, é utilizado o comando **sudo nano /etc/default/isc-dhcp-server** para abrir o arquivo de configuração para informar a interface. Como eu só possuo a **INTERFACEv4**, eu coloco **“enp0s8”** para a interface que eu quero entregar esses IP’s. 
 
-```bash
-sudo systemctl status apache2
+#### f) Reiniciação do Serviço: 
+
 ```
+bash sudo service isc-dhcp-server restart
+``` 
 
----
+--- 
 
-### 2.2.2.5 Configuração do Diretório e Página Web
+### 2.2.2.5 Configuração do Cliente DHCP 
 
-O Apache, por padrão, utiliza o diretório /var/www/html como raiz do site.
+#### a) Configuração da Ethernet: 
 
-Para este projeto, foi mantido o diretório padrão e substituído o arquivo inicial index.html por uma página personalizada.
+Acessei as configurações da Ethernet e defini as opções de IP e DNS para obtenção automática. --- ### 2.2.2.6 Teste de Funcionamento e Acesso 
 
-#### a) Remoção do arquivo padrão
-todos os trem q não é o status e os testes no windows
-```bash
-sudo rm /var/www/html/index.html
+#### a) Windows: 
+
+Para validar o funcionamento do servidor DHCP, o acesso foi realizado diretamente pelo usuário Windows, utilizando o IP e DNS automáticos. 
+
 ```
-
-#### b) Criação da nova página HTML
-
-```bash
-sudo nano /var/www/html/index.html
+cpp http://34.227.47.125/
 ```
+imagem aqui 
 
-#### c) Conteúdo
+Podemos testar a comunicação entre a máquina Windows e a máquina Ubuntu utilizando o comando **ping 192.168.1.1**, pois ambas estão conectadas à mesma rede. 
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servidor</title>
-</head>
-<body>
-    <h1>Teste Servidor</h1>
-</body>
-</html>
-```
+imagem aqui 
 
-#### d) Permissões de acesso
+Com o comando **ipconfig**, podemos visualizar o IP, que corresponde ao mesmo IP configurado na máquina Ubuntu. 
 
-```bash
-sudo chown -R www-data:www-data /var/www/html
-sudo chmod -R 755 /var/www/html
-```
+#### a) Ubuntu: 
 
-#### e) Reinício do serviço
+imagem aqui 
 
-```bash
-sudo systemctl restart apache2
-```
----
----
-
-### 2.2.2.6 Teste de Funcionamento e Acesso Web
-
-Para validar o funcionamento do servidor DHCP, o acesso foi realizado diretamente pelo usuário Windows, utilizando o IP e DNS automáticos.
-
-```cpp
-http://34.227.47.125/
-```
-
-A página HTML personalizada foi exibida corretamente, confirmando o pleno funcionamento do serviço Apache.
+Após reiniciar a máquina com o comando **sudo service isc-dhcp-server restart**, e verificar o status da mesma com **sudo service isc-dhcp-server status**, podemos ver que o servidor está **active “(running)”**, ou seja, funcionando corretamente. 
 
 ---
 
