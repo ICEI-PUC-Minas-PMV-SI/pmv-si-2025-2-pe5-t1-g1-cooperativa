@@ -148,14 +148,11 @@ A página HTML personalizada foi exibida corretamente, confirmando o pleno funci
 ### 2.1.2.1 Introdução
 
 
-O **Servidor DHCP (Dynamic Host Configuration Protocol)** 
-
-
-
+O **Servidor AD (Active Directory)** na CredValeDoce foi pensado para ser uma estrutura centralizada, que será utilizada para organizar e gerenciar os recursos de rede, como computadores, grupos, usuários e para o gerenciamento de permissões e políticas de seurança. Isso permite que a cooperativa de crédito tenha mais segurança em relação as suas informações e garante que apenas pessoas autorizadas possam ter acesso a dados sensíveis. Sendo assim o AD facilita a administração da rede, dando mais padronização, agilidade e segurança aos processos internos da CVD.
 
 ---
 
-### 2.2.2.2 Topologia da Arquitetura
+### 2.1.2.2 Topologia da Arquitetura
 
 **Tipo**: Centralizado
 **Rede VPC**: 172.31.0.0/16
@@ -163,123 +160,98 @@ O **Servidor DHCP (Dynamic Host Configuration Protocol)**
 
 | Função | Nome da Instância | IPv4 Privado  | IPv4 Público  | Papel        |
 | ------ | ----------------- | ------------- | ------------- | ------------ |
-| Matriz | DHCP Server       | xxxxxxx       | xxxxxxx       | DHCP Server  |
-| Cliente| Cliente Windows   | xxxxxxx       | xxxxxxx       | DHCP Cliente |
+| Matriz | AD Server         | 172.16.100.20 | xxxxxxx       | AD Server    |
+| Usuário| Cliente Windows   | xxxxxxx       | xxxxxxx       | Usuário      |
 
-> **Observação**: Ambiente configurado em **Ubuntu Server 22.04 LTS.** e **Windows Server 2025.**
+> **Observação**: Ambiente configurado em **Windows Server 2025.** e **Windows Pro 2012.**
 
 ---
 
-### 2.2.2.3 Máquina Virtual
+### 2.1.2.3 Máquina Virtual
 
-Foi criada uma máquina virtual local no Virtual Box para atuar como Servidor DHCP da Matriz da Cooperativa de Crédito.
+Foi criada uma máquina virtual local no Virtual Box para atuar como Servidor AD da Cooperativa de Crédito.
 
-A instância foi feita utilizando o Ubuntu Server 22.04 LTS como sistema operacional e com Windows Server 2025 como cliente que irá se conectar a rede.
+A instância foi feita utilizando o Windows Server 2025 como sistema operacional e com Windows Pro 2012 como usuário que irá se conectar a rede.
 
 <img width="1917" height="926" alt="Image" src="https://github.com/user-attachments/assets/ec87c6a5-015d-43dc-98ee-3eca11fd329b" />
 
-A configuração foi realizada de forma que os arquivos estivessem na pasta /etc/netplan/00-installer-config.yaml, permitindo que o server tenha acesso as configurações estipuladas.
+Para que fosse possível fazer a configuração é necessário instalar o AD DS no servidor. Mas ele requer que um servidor DNS seja instalado anteriormente. Por isso, a instalação do DNS deve ocorrer antes do AD. Depois de cumprir esses pré requisitos, o server foi renomeado, e foi feita a promoção do servidor a controlador de domínio e o domínio raiz se tornou o credevaledoce.coop.
 
-Insira aqui as conf utilizadas.
+As configurações de IP utilizadas foram IP 172.16.100.20, a máscara de sub-rede, 255.255.255.0 e o DNS 172.16.100.2.
 
-> Essa máquina representa o **servidor DHCP** da Cooperativa, responsável por disponibilizar informações de IP para os computadores que se conectam ao server.
 
-> A segunda máquina representa o **cliente DHCP** da Cooperativa, que se conecta a faixa de IP disponibilizada pelo server.
+> Essa máquina representa o **servidor AD** da Cooperativa, responsável por centralizar, organizar e gerenciar serviços de rede.
+
+> A segunda máquina representa o **usuário AD** da Cooperativa, que se conecta ao domínio CREDVALEDOCE.
 
 ---
 
-### 2.2.2.4 Instalação e Configuração do Apache
+### 2.1.2.4 Instalação e Configuração do Windows Server
 
-#### a) Atualização dos pacotes
+#### a) Mudança do nome do servidor
 
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
 
-#### b) Instalação do Apache
+#### b) Instalação DNS
 
 ```bash
 sudo apt install apache2 -y
 ```
 
-#### c) Habilitando Serviço
+#### c) Instalação AD DS
 
 ```bash
 sudo systemctl enbale apache2 
 ```
 
-#### d) Iniciando Serviço
+#### d) Promoção do servidor a controlador de domínio
 
 ```bash
 sudo systemctl start apache2
 ```
 
-#### e) Verificação do serviço
+#### e) Adição de nova floresta credvaledoce.coop
 
 ```bash
 sudo systemctl status apache2
 ```
 
+#### f) Adição de unidades organizacionais em ferramentas administrativas
+
+```bash
+sudo systemctl status apache2
+```
+
+#### g) Criação de usuário
+
+```bash
+sudo systemctl status apache2
+```
+#### g) Delegação de controle ao usuário
+
+```bash
+sudo systemctl status apache2
+```
+#### h) Gerenciamento de política de grupo
+
+```bash
+sudo systemctl status apache2
+```
 ---
 
-### 2.2.2.5 Configuração do Diretório e Página Web
 
-O Apache, por padrão, utiliza o diretório /var/www/html como raiz do site.
+### 2.2.2.6 Teste de Funcionamento e Acesso Usuário Windows 2012
 
-Para este projeto, foi mantido o diretório padrão e substituído o arquivo inicial index.html por uma página personalizada.
-
-#### a) Remoção do arquivo padrão
-todos os trem q não é o status e os testes no windows
-```bash
-sudo rm /var/www/html/index.html
-```
-
-#### b) Criação da nova página HTML
-
-```bash
-sudo nano /var/www/html/index.html
-```
-
-#### c) Conteúdo
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servidor</title>
-</head>
-<body>
-    <h1>Teste Servidor</h1>
-</body>
-</html>
-```
-
-#### d) Permissões de acesso
-
-```bash
-sudo chown -R www-data:www-data /var/www/html
-sudo chmod -R 755 /var/www/html
-```
-
-#### e) Reinício do serviço
-
-```bash
-sudo systemctl restart apache2
-```
----
----
-
-### 2.2.2.6 Teste de Funcionamento e Acesso Web
-
-Para validar o funcionamento do servidor DHCP, o acesso foi realizado diretamente pelo usuário Windows, utilizando o IP e DNS automáticos.
-
+Para validar o funcionamento do servidor AD, o teste foi realizado pelo usuário Windows 2012, que como podemos observar ele encontra o domínio CREDVALEDOCE.
 ```cpp
 http://34.227.47.125/
 ```
 
-A página HTML personalizada foi exibida corretamente, confirmando o pleno funcionamento do serviço Apache.
+Foi realizado o cadastro do usuário na rede.
+
+Podemos perceber que as politicas de grupo estão em funcionamento porque ele não consegue entrar no painel de controle e o CMD está oculto. 
 
 ---
 
