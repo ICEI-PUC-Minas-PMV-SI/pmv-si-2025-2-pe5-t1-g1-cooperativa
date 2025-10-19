@@ -6,12 +6,13 @@ Configurar e documentar os principais serviços de rede (**FTP, NFS, Web/Apache,
 ---
 
 ## 1. Organização da Equipe
-- **Carlos** → Configuração e testes do FTP, AD + GPO.  
+- **Carlos** → Configuração e testes do FTP e ajuda no AD.  
 - **Odair** → Configuração e testes do NFS.  
 - **Lucas** → Configuração do servidor Web (Apache).  
 - **Yan** → Configuração do DNS.  
-- **Victor** → Configuração do Banco de Dados (PostgreSQL).  
-- **Laura e Luana** → Configuração do DHCP.  
+- **Victor** → Configuração do Banco de Dados (PostgreSQL).
+- **Luana** → Configuração e testes AD e ajuda no DHCP.   
+- **Laura** → Configuração e testes do DHCP.  
 - **Todos** → Colaboração na documentação final, revisão e testes integrados.  
 
 ---
@@ -31,12 +32,12 @@ Configurar e documentar os principais serviços de rede (**FTP, NFS, Web/Apache,
 Cada membro ficou responsável pela configuração de um serviço inicialmente:  
 
 - **Carlos (FTP)** → criar usuários, testar envio/recebimento.  
-- **Carlos (AD + GPO)** → criar usuários e grupos, organizar OUs, aplicar políticas de segurança e restrições via GPO, testar autenticação e permissões.  
+- **Luana (AD)** → criar usuários e grupos, organizar OUs, aplicar políticas de segurança e restrições via GPO, testar autenticação e permissões.  
 - **Odair (NFS)** → configurar diretórios exportados, testar leitura/escrita.  
 - **Lucas (Apache)** → hospedar página inicial, habilitar logs.  
 - **Yan (DNS)** → criar zonas direta e reversa, validar resolução de nomes.  
 - **Victor (PostgreSQL)** → criar banco inicial, permissões de usuários, testar conexões.  
-- **Laura e Luana (DHCP)** → configurar range de IPs, reservas, testes de atribuição dinâmica.  
+- **Laura (DHCP)** → configurar range de IPs, reservas, testes de atribuição dinâmica.  
 
 **Entrega parcial:**  
 - documentação de configuração de cada serviço e prints dos testes.
@@ -53,4 +54,20 @@ Cada membro ficou responsável pela configuração de um serviço inicialmente:
 
 | Equipe | Carga Horária | Ações/Atividades | Data |
 |--------|---------------|-----------------|------|
-| Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 0:00 h | Reunião inicial. | 00/00 |
+| Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 1:00 h | Reunião inicial. | 15/09 |
+| Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 2:20 h | Reunião para divisão de tarefas. | 24/09 |
+| Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 5:00 h | Reunião para ajudar quem ainda não havia baixado as máquinas virtuais. | 25/09 |
+| Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 2:30 h | Reunião para entrar em no github e ver progresso. | 06/10 |
+| Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 3:00 h | Reunião para definir o padrão do trabalho e dos vídeos. | 08/10 |
+| Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 1:30 h | Reunião para atualizações. | 13/08 |
+
+
+# Cronograma de Atividades Individuais – 2ª Etapa
+
+- **Carlos** →  
+- **Luana** → fiz o servidor e cliente AD e a documentação do mesmo, ajudei a Laura no servidor DHCP e editei o video da entrega.
+- **Odair** →   
+- **Lucas** →  
+- **Yan** →   
+- **Victor** →  
+- **Laura** →   
