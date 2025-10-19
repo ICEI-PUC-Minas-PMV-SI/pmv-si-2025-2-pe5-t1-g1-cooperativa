@@ -46,8 +46,8 @@ A configuração foi realizada de forma que os arquivos estivessem na pasta /etc
 
 #### a) Visualização das Interfaces do Sistema: 
 
-```
-bash ifconfig 
+```bash
+ifconfig 
 ``` 
 
 imagem aqui 
@@ -59,14 +59,14 @@ Redes configuradas:
 
 #### b) Instalação do Serviço 
 
-```
-bash sudo apt install isc-dhcp-server -y 
+```bash
+sudo apt install isc-dhcp-server -y 
 ``` 
 
 #### c) Configuração do Arquivo /etc/netplan: 
 
-```
-bash sudo nano /etc/netplan00-instaler-config.yaml
+```bash
+sudo nano /etc/netplan00-instaler-config.yaml
 ```
 
 imagem aqui
@@ -81,8 +81,8 @@ Para garantir que o servidor mantenha IP fixo na sua interface, foi configurado 
 
 #### d) Configuração do Serviço: 
 
-```
-bash sudo nano /etc/dhcp/dhcpd.conf
+```bash
+sudo nano /etc/dhcp/dhcpd.conf
 ``` 
 
 imagem aqui 
@@ -91,8 +91,8 @@ A tela mostra a configuração do serviço DHCP através do arquivo **/etc/dhcp/
 
 #### e) Configuração da Interface de Rede: 
 
-```
-bash sudo nano /etc/default/isc-dhcp-server
+```bash
+sudo nano /etc/default/isc-dhcp-server
 ```
 imagem aqui 
 
@@ -100,8 +100,8 @@ Para definir qual interface de rede será responsável por distribuir o range de
 
 #### f) Reiniciação do Serviço: 
 
-```
-bash sudo service isc-dhcp-server restart
+```bash
+sudo service isc-dhcp-server restart
 ``` 
 
 --- 
