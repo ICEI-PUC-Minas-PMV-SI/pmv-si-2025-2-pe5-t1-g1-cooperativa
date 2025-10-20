@@ -387,8 +387,66 @@ A conectividade entre a instância e os usuários externos dependeu das configur
 
 >Em ambiente de produção, recomenda-se **restringir o acesso HTTP a endereços específicos** e utilizar **HTTPS (porta 443) com certificado SSL**.
 
-## 2.X.X Serviço DNS (Domain Name System)
+## 2.2.3. Serviço DNS (Domain Name System)
+## 2.2.3.1 Introdução 
 
+O DNS (Domain Name System) é o sistema responsável por traduzir endereços de IP em nomes de domínio. Uma vez que os computadores interpretam apenas números, o DNS atua como uma espécie de "tradutor da internet", sendo um mecânismo muito importante, já que os domínios é mais fácil de memorizar. Portanto, esse processo é essencial para o funcionamento da internet, pois permite que usuários acessem sites, servidores e serviços de forma simples, sem precisar memorizar sequências de números.
+
+Ultilizando o site googole.com por exemplo: 
+<img width="622" height="455" alt="Captura de Tela (716)" src="https://github.com/user-attachments/assets/0db92cb1-b8e7-4e8d-98f2-4bec6873c2e6" />
+
+Ao aplicar o comando "nslookup google.com" conseguimos ter acesso aos IPs, apesar de ser legíveis por humanos — como google.com — os endereços numéricos compreendidos pelas máquinas, como 142.251.163.139, o interessante é que ao incerir um IP em um navegador é possível acessar um site da mesma forma que se escreve um domínio.
+
+## 2.2.3.2 Estrutura Hierárquica do DNS
+
+Por conseguinte, é importante enteder como funciona os domínios e como se estrutura sua forma hierárquica: 
+
+| **Nível** | **Exemplo** | **Descrição / Função** |
+|------------|--------------|--------------------------|
+| **1️⃣ Raiz (Root)** | `.` | É o topo da hierarquia. Representado por um ponto final (geralmente oculto). Redireciona consultas aos servidores dos domínios de topo (TLDs). |
+| **2️⃣ Domínio de Topo (TLD)** | `.com`, `.org`, `.br` | Define a categoria ou país do domínio. Exemplo: `.com` para comercial, `.br` para Brasil. |
+| **3️⃣ Domínio de Segundo Nível (SLD)** | `credvaledoce.com` | Nome principal do site, escolhido pelo proprietário. Identifica a organização ou projeto. |
+| **4️⃣ Subdomínio** | `www.credvaledoce.com` ou `blog.cooperativa.com` | Subdivisão do domínio principal. Pode representar diferentes serviços ou seções do mesmo site. |
+| **5️⃣ Host / Registro (A ou CNAME)** | `www` → `192.168.1.10` | Define o nome exato do servidor (máquina) onde o site ou serviço está hospedado. Aponta para um endereço IP. |
+
+---
+
+Em resumo, a consulta DNS começa na "raiz", passa pelo "TLD", em seguida pelo "domínio de segundo nível", e por fim chega ao "servidor específico" onde o site está hospedado, de modo que essa hierarquia facilita a organização da internet, permitindo que o DNS direcione corretamente os usuários para os servidores correspondentes.
+
+## 2.2.3.3 A Importância do Netplan na Configuração de Rede
+
+É importante ressaltar que dentro da instância Ubuntu EC2 na AWS, a ferramenta Netplan que é responsável por configurar a rede e o DNS do sistema. Ela garante que a máquina possua conectividade com a internet e que possa responder corretamente às consultas DNS recebidas.
+
+Para visualizar ou editar as configurações, utiliza-se o comando:
+
+<img width="728" height="284" alt="Captura de Tela (717)" src="https://github.com/user-attachments/assets/7a0ee4dd-3fb8-4b3b-9471-73721e97ca7c" />
+
+<img width="513" height="313" alt="Captura de Tela (718)" src="https://github.com/user-attachments/assets/ccc99826-824a-4a39-ac0e-5b24d4c2230f" />
+
+Dentre as instâncias presnetes, vale destacar o "dhcp4" - Ao dexiar somente em "True" a máquina recebe automaticamente todas as configurações de rede incluindo os DNS via DHCP da AWS.
+Dessa forma, para definir um DNS fixo, poderíamos usar: 
+
+<img width="778" height="449" alt="Captura de Tela (723)" src="https://github.com/user-attachments/assets/448d725e-855e-403e-85a5-f4539028a60c" />
+
+Logo, foi adicionado um "nameservers" é substituído addresses: [8.8.8.8, 1.0.0.1] pelo [8.8.8.8, 1.0.0.1] 
+
+O interessante é que ao verificar as mudanças: 
+
+<img width="657" height="257" alt="Captura de Tela (721)" src="https://github.com/user-attachments/assets/1c3dc142-9f3c-4b48-8f92-6a113a0bc5f7" />
+<img width="695" height="227" alt="Captura de Tela (720)" src="https://github.com/user-attachments/assets/379c74ff-bb53-4a73-ad20-63584c55e10f" />
+
+O addresses: [8.8.8.8, 1.0.0.1] continua o mesmo. A partir disso é necessário dar um comando: 
+
+<img width="657" height="257" alt="Captura de Tela (721)" src="https://github.com/user-attachments/assets/18f4b2cd-6738-464e-a6d7-6340d36a06aa" />
+
+e ao verificar novamente: 
+
+<img width="838" height="378" alt="Captura de Tela (722)" src="https://github.com/user-attachments/assets/399bca5b-503f-4763-ab1e-14d551c97c8d" />
+
+É possível observar que as mundaças só são aplicadas metiante ao comando "sudo netplan applay". Dessa forma, o Netplan garante que a instância tenha uma rede funcional e possa responder às consultas DNS.
+de modo que sem ele — ou com uma configuração incorreta — a instância não teria conectividade, e o site não seria acessível, site não sendo acessível o cliente não tem acesso, mesmo que o DNS esteja configurado corretamente.
+
+Na AWS, as instâncias EC2 recebem automaticamente um DNS interno via DHCP da VPC, o Netplan, por sua vez, gerencia essa rede, aplicando corretamente as configurações de IP e DNS.
 
 
 ## 2.X.X Serviço de Banco de Dados (PostgreSQL)
