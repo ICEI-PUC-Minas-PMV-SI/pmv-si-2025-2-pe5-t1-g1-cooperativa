@@ -70,4 +70,4 @@ Cada membro ficou responsável pela configuração de um serviço inicialmente:
 - **Lucas** →  
 - **Yan** →   
 - **Victor** →  
-- **Laura** → fiz o servidor e o cliente DHCP  
+- **Laura** → fiz o servidor e o cliente DHCP e a documentação do mesmo. 
