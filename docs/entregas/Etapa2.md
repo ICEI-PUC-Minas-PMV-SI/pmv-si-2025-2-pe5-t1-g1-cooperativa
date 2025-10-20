@@ -32,7 +32,8 @@ Com essa configuração ele simplifica a administração da rede, evitando a nec
 
 Foi criada uma máquina virtual local no Virtual Box para atuar como Servidor DHCP da Matriz da Cooperativa de Crédito. A instância foi feita utilizando o Ubuntu Server 22.04 LTS como sistema operacional e com Windows Server 2025 como cliente que irá se conectar a rede. 
 
-<img width="1917" height="926" alt="Image" src="https://github.com/user-attachments/assets/ec87c6a5-015d-43dc-98ee-3eca11fd329b" /> 
+<img width="830" height="513" alt="Captura de tela 2025-10-19 21 54 44" src="https://github.com/user-attachments/assets/feeb5c0d-fc6e-409e-92c2-061fc0b73717" />
+
 
 A configuração foi realizada de forma que os arquivos estivessem na pasta /etc/netplan/00-installer-config.yaml, permitindo que o server tenha acesso as configurações estipuladas. Endereços de IP: **192.168.1.1/24**, Gateway padrão: **10.0.2.15**, DNS´s padrão primário e secundários: **8.8.8.8, 1.1.1.1**. 
 
@@ -48,9 +49,9 @@ A configuração foi realizada de forma que os arquivos estivessem na pasta /etc
 
 ```bash
 ifconfig 
-``` 
+```
 
-imagem aqui 
+<img width="1068" height="487" alt="ifconfig_novo" src="https://github.com/user-attachments/assets/36984fa4-45e1-4e48-8c89-17aa11a5ae87" /> 
 
 A tela do comando ifconfig no **Ubuntu**, mostra informações detalhadas sobre todas as interfaces de rede do sistema, incluindo: Nome da Interface, Endereço IPv4, Máscara de sub-rede, Endereço IPv6, Endereço MAC, Status da Interface, Pacotes enviados e recebidos, e Informações de broadcast e multicast. 
 Redes configuradas: 
@@ -69,7 +70,8 @@ sudo apt install isc-dhcp-server -y
 sudo nano /etc/netplan00-instaler-config.yaml
 ```
 
-imagem aqui
+<img width="1012" height="270" alt="config yaml" src="https://github.com/user-attachments/assets/4ef8a244-2010-4cff-ba57-63a9c1ebe73f" />
+
 
 Para garantir que o servidor mantenha IP fixo na sua interface, foi configurado o arquivo de rede **/etc/netplan00-instaler-config.yaml**. Na tela, vemos duas interfaces de rede configuradas: 
 
@@ -94,7 +96,9 @@ A tela mostra a configuração do serviço DHCP através do arquivo **/etc/dhcp/
 ```bash
 sudo nano /etc/default/isc-dhcp-server
 ```
-imagem aqui 
+
+<img width="1276" height="310" alt="Captura de Tela (7)" src="https://github.com/user-attachments/assets/b1733841-69b6-440d-94eb-47da9bb8ff2b" />
+
 
 Para definir qual interface de rede será responsável por distribuir o range de IP’s configurado no servidor DHCP, é utilizado o comando **sudo nano /etc/default/isc-dhcp-server** para abrir o arquivo de configuração para informar a interface. Como eu só possuo a **INTERFACEv4**, eu coloco **“enp0s8”** para a interface que eu quero entregar esses IP’s. 
 
@@ -116,20 +120,20 @@ Acessei as configurações da Ethernet e defini as opções de IP e DNS para obt
 
 Para validar o funcionamento do servidor DHCP, o acesso foi realizado diretamente pelo usuário Windows, utilizando o IP e DNS automáticos. 
 
-```
-cpp http://34.227.47.125/
-```
-imagem aqui 
+<img width="1023" height="636" alt="teste1" src="https://github.com/user-attachments/assets/c48e0fc9-ddbc-4ca0-8b9d-9018e0b4df34" />
+
 
 Podemos testar a comunicação entre a máquina Windows e a máquina Ubuntu utilizando o comando **ping 192.168.1.1**, pois ambas estão conectadas à mesma rede. 
 
-imagem aqui 
+<img width="1020" height="640" alt="teste" src="https://github.com/user-attachments/assets/fa5cc928-2046-4657-ae91-72b9634335c7" />
+
 
 Com o comando **ipconfig**, podemos visualizar o IP, que corresponde ao mesmo IP configurado na máquina Ubuntu. 
 
 #### a) Ubuntu: 
 
-imagem aqui 
+<img width="1034" height="376" alt="Captura de tela 2025-10-19 21 51 31" src="https://github.com/user-attachments/assets/0f37deb0-56e4-4d2f-ad40-4de422a7c3c7" />
+
 
 Após reiniciar a máquina com o comando **sudo service isc-dhcp-server restart**, e verificar o status da mesma com **sudo service isc-dhcp-server status**, podemos ver que o servidor está **active “(running)”**, ou seja, funcionando corretamente. 
 
