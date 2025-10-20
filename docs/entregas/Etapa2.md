@@ -393,6 +393,7 @@ A conectividade entre a instância e os usuários externos dependeu das configur
 O DNS (Domain Name System) é o sistema responsável por traduzir endereços de IP em nomes de domínio. Uma vez que os computadores interpretam apenas números, o DNS atua como uma espécie de "tradutor da internet", sendo um mecânismo muito importante, já que os domínios é mais fácil de memorizar. Portanto, esse processo é essencial para o funcionamento da internet, pois permite que usuários acessem sites, servidores e serviços de forma simples, sem precisar memorizar sequências de números.
 
 Ultilizando o site googole.com por exemplo: 
+
 <img width="622" height="455" alt="Captura de Tela (716)" src="https://github.com/user-attachments/assets/0db92cb1-b8e7-4e8d-98f2-4bec6873c2e6" />
 
 Ao aplicar o comando "nslookup google.com" conseguimos ter acesso aos IPs, apesar de ser legíveis por humanos — como google.com — os endereços numéricos compreendidos pelas máquinas, como 142.251.163.139, o interessante é que ao incerir um IP em um navegador é possível acessar um site da mesma forma que se escreve um domínio.
