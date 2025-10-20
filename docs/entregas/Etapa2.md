@@ -146,33 +146,31 @@ O **Servidor AD (Active Directory)** na CredValeDoce foi pensado para ser uma es
 
 ### 2.1.2.2 Topologia da Arquitetura
 
-**Tipo**: Centralizado
-**Rede VPC**: 172.31.0.0/16
-**Acesso permitido:**: 0.0.0.0/0 *(para testes - POC)*
+| Função | Nome da Instância | IPv4 Privado  | Papel         |
+| ------ | ----------------- | ------------- | ------------  |
+| Matriz | AD Server         | 172.16.100.2  |  AD Server    |
+| Usuário| Cliente Windows   | 172.16.100.20 |  Usuário      |
 
-| Função | Nome da Instância | IPv4 Privado  | IPv4 Público  | Papel        |
-| ------ | ----------------- | ------------- | ------------- | ------------ |
-| Matriz | AD Server         | 172.16.100.20 | xxxxxxx       | AD Server    |
-| Usuário| Cliente Windows   | xxxxxxx       | xxxxxxx       | Usuário      |
-
-> **Observação**: Ambiente configurado em **Windows Server 2025.** e **Windows Pro 2012.**
+> **Observação**: Ambiente configurado em **Windows Server 2025** e **Windows 7 Ultimate.**
 
 ---
 
 ### 2.1.2.3 Máquina Virtual
 
-Foi criada uma máquina virtual local no Virtual Box para atuar como Servidor AD da Cooperativa de Crédito.
+Foram criadas duas máquinas virtuais locais no Virtual Box, uma para atuar como Servidor AD da Cooperativa de Crédito e uma como cliente.
 
-A instância foi feita utilizando o Windows Server 2025 como sistema operacional e com Windows 7 Pro 2012 como usuário que irá se conectar a rede.
+As instâncias foram feitas utilizando o Windows Server 2025 para o servidor e o Windows 7 Ultimate como usuário que irá se conectar a rede.
 
-<img width="1917" height="926" alt="Image" src="https://github.com/user-attachments/assets/ec87c6a5-015d-43dc-98ee-3eca11fd329b" />
+Para que fosse possível fazer a configuração é necessário renomear o server e posteriormente instalar o AD DS no servidor. Mas ele requer que um servidor DNS seja instalado anteriormente. Por isso, a instalação do DNS deve ocorrer antes do AD. Depois foi feita a promoção do servidor a controlador de domínio e o domínio raiz se tornou o credevaledoce.coop.
 
-Para que fosse possível fazer a configuração é necessário instalar o AD DS no servidor. Mas ele requer que um servidor DNS seja instalado anteriormente. Por isso, a instalação do DNS deve ocorrer antes do AD. Depois de cumprir esses pré requisitos, o server foi renomeado, e foi feita a promoção do servidor a controlador de domínio e o domínio raiz se tornou o credevaledoce.coop.
+As configurações de IP utilizadas foram IP 172.16.100.2 para o server e IP 172.16.100.20 para o cliente e a máscara de sub-rede de ambos foi 255.255.255.0.
 
-As configurações de IP utilizadas foram IP 172.16.100.20, a máscara de sub-rede, 255.255.255.0 e o DNS 172.16.100.2.
+<img width="1024" height="768" alt="VirtualBox_Windowserver_19_10_2025_21_20_52" src="https://github.com/user-attachments/assets/869ac7c4-d975-425b-a78c-7800fdd657c7" />
+
+> A primeira máquina representa o **servidor AD** da Cooperativa, responsável por centralizar, organizar e gerenciar serviços de rede.
 
 
-> Essa máquina representa o **servidor AD** da Cooperativa, responsável por centralizar, organizar e gerenciar serviços de rede.
+<img width="800" height="560" alt="VirtualBox_TesteWindows7_19_10_2025_00_23_21" src="https://github.com/user-attachments/assets/ba8a67d5-dbfd-48d6-af1f-a34addd3309f" />
 
 > A segunda máquina representa o **usuário AD** da Cooperativa, que se conecta ao domínio CREDVALEDOCE.
 
@@ -182,40 +180,42 @@ As configurações de IP utilizadas foram IP 172.16.100.20, a máscara de sub-re
 
 #### a) Mudança do nome do servidor
 
+<img width="1024" height="768" alt="VirtualBox_Windowserver_19_10_2025_20_17_30" src="https://github.com/user-attachments/assets/8d14a511-0b44-4ac5-91b9-000febd19012" />
 
 #### b) Instalação DNS e AD DS
 
+<img width="1024" height="768" alt="VirtualBox_Windowserver_19_10_2025_00_46_34" src="https://github.com/user-attachments/assets/7b5ebe06-e05b-4917-bf8a-0323b89c7e5b" />
 
-#### c) Promoção do servidor a controlador de domínio
+#### c) Adição de unidades organizacionais em ferramentas administrativas
 
+<img width="1024" height="768" alt="VirtualBox_Windowserver_19_10_2025_21_30_00" src="https://github.com/user-attachments/assets/4f04bda2-5c7d-4de6-8810-1cabb23f700f" />
 
-#### d) Adição de nova floresta credvaledoce.coop
+#### d) Criação de usuário
 
+<img width="1024" height="768" alt="VirtualBox_Windowserver_19_10_2025_00_43_20" src="https://github.com/user-attachments/assets/13e9b471-97cd-4b13-ab61-8a92a13ba111" />
 
-#### e) Adição de unidades organizacionais em ferramentas administrativas
+#### e) Delegação de controle de objetos computadores ao grupo Adm
 
+<img width="1024" height="768" alt="VirtualBox_Windowserver_19_10_2025_00_42_21" src="https://github.com/user-attachments/assets/d76792d8-ba3f-427d-b46b-bc9ec0d07740" />
 
-#### f) Criação de usuário
+#### f) Gerenciamento do grupo de políticas
 
-
-#### g) Delegação de controle ao usuário
-
-
-#### h) Gerenciamento de política de grupo
+<img width="1024" height="768" alt="VirtualBox_Windowserver_19_10_2025_00_44_59" src="https://github.com/user-attachments/assets/c0f58d74-18b5-480d-8098-444ff39e3c6f" />
 
 
 ---
 
 
-### 2.2.2.6 Teste de Funcionamento e Acesso Usuário Windows 2012
+### 2.2.2.6 Teste de Funcionamento e Acesso Usuário Windows 7 Ultimate
 
-Para validar o funcionamento do servidor AD, o teste foi realizado pelo usuário Windows 7 Pro 2012, que como podemos observar ele encontra o domínio CREDVALEDOCE.
+Para validar o funcionamento do servidor AD, o teste foi realizado pelo usuário Windows 7 Ultimate, que como podemos observar foi configurado nele o domínio credvaledoce.coop, logando com o usuário do grupo adm capaz de criar o objeto computador.
+
+<img width="800" height="560" alt="VirtualBox_TesteWindows7_19_10_2025_00_25_51" src="https://github.com/user-attachments/assets/809749e0-ac2f-4741-b642-11f8d71bce3d" />
 
 
+Foi realizado o login do usuário na rede.
 
-
-Foi realizado o cadastro do usuário na rede.
-
+<img width="800" height="600" alt="VirtualBox_TesteWindows7_19_10_2025_00_31_06" src="https://github.com/user-attachments/assets/f82c2961-78ef-4ace-b44d-d4942a9fa9c9" />
 
 
 Podemos perceber que as politicas de grupo estão em funcionamento porque ele não consegue entrar no painel de controle e o CMD está oculto. 
