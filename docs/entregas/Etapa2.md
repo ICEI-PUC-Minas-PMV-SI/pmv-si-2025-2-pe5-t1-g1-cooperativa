@@ -218,7 +218,9 @@ Foi realizado o login do usuário na rede.
 <img width="800" height="600" alt="VirtualBox_TesteWindows7_19_10_2025_00_31_06" src="https://github.com/user-attachments/assets/f82c2961-78ef-4ace-b44d-d4942a9fa9c9" />
 
 
-Podemos perceber que as politicas de grupo estão em funcionamento porque ele não consegue entrar no painel de controle e o CMD está oculto. 
+Podemos perceber que as politicas de grupo estão em funcionamento porque ele não consegue entrar no painel de controle.
+
+<img width="800" height="600" alt="VirtualBox_TesteWindows7_19_10_2025_21_42_29" src="https://github.com/user-attachments/assets/63a8ba3e-8c44-4154-83d9-d3b754184093" />
 
 
 
