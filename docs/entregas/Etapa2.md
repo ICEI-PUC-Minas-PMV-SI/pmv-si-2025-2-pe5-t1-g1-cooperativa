@@ -87,7 +87,11 @@ Para garantir que o servidor mantenha IP fixo na sua interface, foi configurado 
 sudo nano /etc/dhcp/dhcpd.conf
 ``` 
 
-imagem aqui 
+<img width="1278" height="639" alt="1" src="https://github.com/user-attachments/assets/2b9b4cf2-729d-4969-b8ed-ffe767889fab" />
+<img width="1269" height="594" alt="2" src="https://github.com/user-attachments/assets/d88d426e-8b6e-450c-9b30-cf71323cdfbc" />
+<img width="1274" height="289" alt="3" src="https://github.com/user-attachments/assets/3bb20336-4a97-4d89-9a5d-72ba82505b32" />
+![4_novo](https://github.com/user-attachments/assets/efe58745-d9c9-44fe-9f87-76904b4698ed)
+
 
 A tela mostra a configuração do serviço DHCP através do arquivo **/etc/dhcp/dhcpd.conf**, foi configurada a **rede** 192.168.1.0 com **máscara** 255.255.255.0, onde o **range de IP’s** vai de 192.168.1.11 a 192.168.1.254, o **gateway** definido foi 192.168.1.1 e os **servidores DNS´s** são 8.8.8.8, 1.1.1.1 e o **domínio** example.org. 
 
