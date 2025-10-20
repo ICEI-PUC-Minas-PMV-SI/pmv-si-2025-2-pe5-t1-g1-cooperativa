@@ -64,7 +64,7 @@ Cada membro ficou responsável pela configuração de um serviço inicialmente:
 
 # Atividades Individuais – 2ª Etapa
 
-- **Carlos** →  
+- **Carlos** → configurei o ftp tanto em server quanto cliente na aws, e ajudei a Luana pontualmente no AD.
 - **Luana** → fiz o servidor e cliente AD e a documentação do mesmo, ajudei a Laura no servidor DHCP e editei o video da entrega.
 - **Odair** →   
 - **Lucas** →  
