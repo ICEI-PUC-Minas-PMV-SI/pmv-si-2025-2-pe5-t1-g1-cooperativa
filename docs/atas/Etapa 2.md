@@ -66,7 +66,7 @@ Cada membro ficou responsável pela configuração de um serviço inicialmente:
 
 - **Carlos** → configurei o ftp tanto em server quanto cliente na aws, e ajudei a Luana pontualmente no AD.
 - **Luana** → fiz o servidor e cliente AD e a documentação do mesmo, ajudei a Laura no servidor DHCP e editei o video da entrega.
-- **Odair** →   
+- **Odair** → Configurei o NFS na AWS, contemplando o servidor e as instâncias clientes. No servidor, realizei a exportação dos diretórios e as configurações de segurança necessárias; nas instâncias clientes, fiz o mapeamento e testes de acesso. Documentei todo o processo e validei o funcionamento por meio de testes de leitura e escrita entre as instâncias.  
 - **Lucas** →  
 - **Yan** →   
 - **Victor** →  
