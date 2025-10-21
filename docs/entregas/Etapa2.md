@@ -4,7 +4,7 @@
 
 ## 2.1.1 Servidor DHCP (Dynamic Host Configuration Protocol) 
 
-### 2.2.2.1 Introdução 
+### 2.1.1.1 Introdução 
 
 O **Servidor DHCP (Dynamic Host Configuration Protocol)** é um protocolo de rede utilizado para atribuir automaticamente endereços IP e outras configurações de rede, como máscara de sub-rede, gateway padrão e servidores DNS, aos dispositivos conectados. 
 
@@ -14,7 +14,7 @@ Com essa configuração ele simplifica a administração da rede, evitando a nec
 
 --- 
 
-### 2.2.2.2 Topologia da Arquitetura 
+### 2.1.1.2 Topologia da Arquitetura 
 
 **Tipo**: Centralizado 
 **Rede VPC**: 172.31.0.0/16 
@@ -28,7 +28,7 @@ Com essa configuração ele simplifica a administração da rede, evitando a nec
 
 ---
 
-### 2.2.2.3 Máquina Virtual 
+### 2.1.1.3 Máquina Virtual 
 
 Foi criada uma máquina virtual local no Virtual Box para atuar como Servidor DHCP da Matriz da Cooperativa de Crédito. A instância foi feita utilizando o Ubuntu Server 22.04 LTS como sistema operacional e com Windows Server 2025 como cliente que irá se conectar a rede. 
 
@@ -43,7 +43,7 @@ A configuração foi realizada de forma que os arquivos estivessem na pasta /etc
 
 ---
 
-### 2.2.2.4 Configuração do Servidor DHCP 
+### 2.1.1.4 Configuração do Servidor DHCP 
 
 #### a) Visualização das Interfaces do Sistema: 
 
@@ -115,7 +115,7 @@ sudo service isc-dhcp-server restart
 
 --- 
 
-### 2.2.2.5 Configuração do Cliente DHCP 
+### 2.1.1.5 Configuração do Cliente DHCP 
 
 #### a) Configuração da Ethernet: 
 
@@ -215,7 +215,7 @@ As configurações de IP utilizadas foram IP 172.16.100.2 para o server e IP 172
 ---
 
 
-### 2.2.2.6 Teste de Funcionamento e Acesso Usuário Windows 7 Ultimate
+### 2.1.2.6 Teste de Funcionamento e Acesso Usuário Windows 7 Ultimate
 
 Para validar o funcionamento do servidor AD, o teste foi realizado pelo usuário Windows 7 Ultimate, que como podemos observar foi configurado nele o domínio credvaledoce.coop, logando com o usuário do grupo adm capaz de criar o objeto computador.
 
@@ -238,10 +238,9 @@ Podemos perceber que as politicas de grupo estão em funcionamento porque ele n�
 
 # 2.2 Serviços em Máquinas Virtuais na Nuvem pela AWS
 
+## 2.2.1 Servidor WEB
 
-## 2.2.2 Servidor WEB
-
-### 2.2.2.1 Introdução
+### 2.2.1.1 Introdução
 
 O **Servidor Web (Apache HTTP Server)** é um serviço reponsável por hospedar e disponibilizar páginas e aplicações web acessíveis via navegador.
 
@@ -251,7 +250,7 @@ Através do Apache, é possível publicar sites, dashboards e sistemas internos 
 
 ---
 
-### 2.2.2.2 Topologia da Arquitetura
+### 2.2.1.2 Topologia da Arquitetura
 
 **Tipo**: Centralizado
 **Rede VPC**: 172.31.0.0/16
@@ -265,7 +264,7 @@ Através do Apache, é possível publicar sites, dashboards e sistemas internos 
 
 ---
 
-### 2.2.2.3 Máquina Virtual na Nuvem
+### 2.2.1.3 Máquina Virtual na Nuvem
 
 Foi criada uma máquina virtual na nuvem (instância EC2) para atuar como Servidor Web da Matriz da Cooperativa de Crédito.
 
@@ -281,7 +280,7 @@ Para fins de prova de conceito (POC), a instância foi configurada com acesso SS
 
 ---
 
-### 2.2.2.4 Instalação e Configuração do Apache
+### 2.2.1.4 Instalação e Configuração do Apache
 
 #### a) Atualização dos pacotes
 
@@ -315,7 +314,7 @@ sudo systemctl status apache2
 
 ---
 
-### 2.2.2.5 Configuração do Diretório e Página Web
+### 2.2.1.5 Configuração do Diretório e Página Web
 
 O Apache, por padrão, utiliza o diretório /var/www/html como raiz do site.
 
@@ -363,7 +362,7 @@ sudo systemctl restart apache2
 ```
 ---
 
-### 2.2.2.6 Teste de Funcionamento e Acesso Web
+### 2.2.1.6 Teste de Funcionamento e Acesso Web
 
 Para validar o funcionamento do servidor, o acesso foi realizado diretamente pelo navegador, utilizando o IP público da instância EC2:
 
@@ -375,7 +374,7 @@ A página HTML personalizada foi exibida corretamente, confirmando o pleno funci
 
 ---
 
-### 2.2.2.7 Configuração de Rede e Segurança
+### 2.2.1.7 Configuração de Rede e Segurança
 
 A conectividade entre a instância e os usuários externos dependeu das configurações de rede na **AWS**:
 
@@ -387,8 +386,9 @@ A conectividade entre a instância e os usuários externos dependeu das configur
 
 >Em ambiente de produção, recomenda-se **restringir o acesso HTTP a endereços específicos** e utilizar **HTTPS (porta 443) com certificado SSL**.
 
-## 2.2.3. Serviço DNS (Domain Name System)
-## 2.2.3.1 Introdução 
+## 2.2.2 Serviço DNS (Domain Name System)
+
+### 2.2.2.1 Introdução 
 
 O DNS (Domain Name System) é o sistema responsável por traduzir endereços de IP em nomes de domínio. Uma vez que os computadores interpretam apenas números, o DNS atua como uma espécie de "tradutor da internet", sendo um mecânismo muito importante, já que os domínios é mais fácil de memorizar. Portanto, esse processo é essencial para o funcionamento da internet, pois permite que usuários acessem sites, servidores e serviços de forma simples, sem precisar memorizar sequências de números.
 
@@ -398,7 +398,7 @@ Ultilizando o site googole.com por exemplo:
 
 Ao aplicar o comando "nslookup google.com" conseguimos ter acesso aos IPs, apesar de ser legíveis por humanos — como google.com — os endereços numéricos compreendidos pelas máquinas, como 142.251.163.139, o interessante é que ao incerir um IP em um navegador é possível acessar um site da mesma forma que se escreve um domínio.
 
-## 2.2.3.2 Estrutura Hierárquica do DNS
+### 2.2.2.2 Estrutura Hierárquica do DNS
 
 Por conseguinte, é importante enteder como funciona os domínios e como se estrutura sua forma hierárquica: 
 
@@ -414,7 +414,7 @@ Por conseguinte, é importante enteder como funciona os domínios e como se estr
 
 Em resumo, a consulta DNS começa na "raiz", passa pelo "TLD", em seguida pelo "domínio de segundo nível", e por fim chega ao "servidor específico" onde o site está hospedado, de modo que essa hierarquia facilita a organização da internet, permitindo que o DNS direcione corretamente os usuários para os servidores correspondentes.
 
-## 2.2.3.3 A Importância do Netplan na Configuração de Rede
+### 2.2.2.3 A Importância do Netplan na Configuração de Rede
 
 É importante ressaltar que dentro da instância Ubuntu EC2 na AWS, a ferramenta Netplan que é responsável por configurar a rede e o DNS do sistema. Ela garante que a máquina possua conectividade com a internet e que possa responder corretamente às consultas DNS recebidas.
 
@@ -449,20 +449,15 @@ de modo que sem ele — ou com uma configuração incorreta — a instância nã
 
 Na AWS, as instâncias EC2 recebem automaticamente um DNS interno via DHCP da VPC, o Netplan, por sua vez, gerencia essa rede, aplicando corretamente as configurações de IP e DNS.
 
+## 2.2.3 Serviço FTP (File Transfer Protocol)
 
-## 2.X.X Serviço de AD (Active Directory)
-
-
-
-## 2.2.4 Serviço FTP (File Transfer Protocol)
-
-### 2.2.4.1 Introdução
+### 2.2.3.1 Introdução
 
 O File Transfer Protocol (FTP) é um protocolo padrão para transferência de arquivos entre sistemas, que garante a entrega dos arquivos e permite controle de acesso.
 
 O serviço foi configurado com um servidor atilizando o vsftpd (Very Secute FTP Daemon), e dois clientes, um Ubuntu e um Windows utilizando o FileZilla. Dessa forma foi possível demonstrar a transferência de arquivos entre diferentes sistemas operacionais.
 
-### 2.2.4.2 Topologia da Arquitetura
+### 2.2.3.2 Topologia da Arquitetura
 
 | Função            | Nome          | IPv4 Privado  | Ferramenta    |
 |-------------------|---------------|---------------|---------------|
@@ -472,7 +467,7 @@ O serviço foi configurado com um servidor atilizando o vsftpd (Very Secute FTP 
 
 > **Observação:** O "UbuntuSRV01T" e "UbuntuCliente" são instâncias na AWS EC2 do tipo t2.micro com Ubuntu Server 24.04. Já a "Máquina local" é um computador pessoal com Windows 11.
 
-### 2.2.4.3 Máquinas Utilizadas
+### 2.2.3.3 Máquinas Utilizadas
 
 Foram criadas duas máquinas virtuais, utilizando o serviço EC2  na AWS (Amazon WEB Services), para a configuração e testes do serviço FTP. Sendo elas, uma instância server (UbuntuSRV01T) responsável por hospedar o serviço FTP via vsftpd. E uma instância cliente (UbuntuCliente) utilizada para testes de conexão e comandos via terminal.
 
@@ -480,7 +475,7 @@ Além disso foi utilizada um computador pessoal com Windows 11, empregada para v
 
 <img width="1917" height="1031" alt="print1" src="https://github.com/user-attachments/assets/a59424ed-834a-40e0-90b0-3db5c2aaab9f" />
 
-### 2.2.4.4 Configuração do Servidor FTP (UbuntuSRV01T)
+### 2.2.3.4 Configuração do Servidor FTP (UbuntuSRV01T)
 
 #### a) Atualização da máquina e instalação do serviço
 
@@ -598,7 +593,7 @@ pasv_address=18.212.252.103: aponta o ip da máquina do servidor.
 sudo systemctl restart vsftpd
 ```
 
-### 2.2.4.5 Configuração e testes do Cliente (UbuntuCliente e Máquina local)
+### 2.2.3.5 Configuração e testes do Cliente (UbuntuCliente e Máquina local)
 
 #### a) Cliente Ubuntu (ftp)
 
@@ -632,9 +627,9 @@ Após a instação do software Filezilla é necessário indicar, nos campos dest
 <img width="1163" height="638" alt="print5" src="https://github.com/user-attachments/assets/ad577f5e-b0fc-4b60-8dda-4c6c4e751a43" />
 
 
-## 2.2.5 Serviço NFS (Network File System)
+## 2.2.4 Serviço NFS (Network File System)
 
-### 2.2.5.1 Introdução
+### 2.2.4.1 Introdução
 
 O **Network File System (NFS)** é um protocolo que possibilita o compartilhamento de arquivos em rede de forma transparente, permitindo que diretórios e arquivos localizados em um servidor sejam acessados por clientes como se estivessem em seus próprios sistemas locais.
 
@@ -646,7 +641,7 @@ O uso do NFS reduz a duplicação de dados, centraliza o armazenamento e facilit
 
 ---
 
-### 2.2.5.2 Topologia da Arquitetura
+### 2.2.4.2 Topologia da Arquitetura
 
 **Tipo:** Centralizada  
 **Rede VPC:** 172.31.0.0/16  
@@ -665,13 +660,13 @@ O uso do NFS reduz a duplicação de dados, centraliza o armazenamento e facilit
 
 ---
 
-### 2.2.5.3 Máquinas Virtuais na Nuvem
+### 2.2.4.3 Máquinas Virtuais na Nuvem
 
 Foram criadas seis máquinas virtuais, denominadas como instâncias do tipo EC2 utilizando o serviço de computação em nuvem da AWS (Amazon Web Services), sendo uma como Servidor da Matriz e as demais como Filiais (Clientes).
 
 <img width="1738" height="830" alt="Screen Shot 2025-10-10 at 18 32 17" src="https://github.com/user-attachments/assets/52f47823-b9de-4e52-9a8c-1fff046cafad" />
 
-### 2.2.5.4 Configuração do Servidor NFS (Matriz)
+### 2.2.4.4 Configuração do Servidor NFS (Matriz)
 
 #### a) Instalação do serviço
 
@@ -725,7 +720,7 @@ Em ambiente de produção, recomenda-se restringir o acesso à faixa da VPC e im
 
 ---
 
-### 2.2.5.5 Configuração do Cliente NFS (Filial 1)
+### 2.2.4.5 Configuração do Cliente NFS (Filial 1)
 Por limitação de tempo e escopo do projeto, a configuração foi demonstrada apenas na Filial 1. As demais filiais podem replicar a configuração.
 
 #### a) Instalação do cliente NFS
@@ -751,7 +746,7 @@ Exemplo de saída:
 ```
 ---
 
-### 2.2.5.6 Testes de Leitura e Escrita
+### 2.2.4.6 Testes de Leitura e Escrita
 #### a) Criação de arquivo na Matriz (Servidor)
 ```bash
 echo -e "Manual de uso do NFS da Cred Vale Doce\n\nDefinições\nInstruções de uso\nBenefícios" | sudo tee /mnt/nfs_share/manual_nfs.txt
@@ -787,7 +782,7 @@ ls /mnt/nfs_share/*.txt
 
 ---
 
-### 2.2.5.7 Transparência do Network File System
+### 2.2.4.7 Transparência do Network File System
 A transparência do NFS é demonstrada pelo fato de que o diretório remoto montado é acessado pelo cliente como se fosse local.
 As operações de leitura, gravação e modificação realizadas nas Filiais ocorrem diretamente no servidor, sem necessidade de sincronizações manuais.
 
@@ -803,9 +798,9 @@ Assim, o NFS implementa o conceito de sistema de arquivos distribuído, assegura
 
 
 
-## 2.2.6 Serviço de Banco de Dados (PostgreSQL)
+## 2.2.5 Serviço de Banco de Dados (PostgreSQL)
 
-### 2.2.6.1 Introdução
+### 2.2.5.1 Introdução
 
 O PostgreSQL, comumente abreviado como "Postgres", é um sistema de gerenciamento de banco de dados relacional a objetos (ORDBMS) de código aberto, conhecido por sua confiabilidade, flexibilidade e suporte a padrões técnicos abertos.
 
@@ -813,7 +808,7 @@ Entre suas principais características estão o suporte a tipos de dados relacio
 
 ---
 
-### 2.2.6.2 Topologia da Arquitetura
+### 2.2.5.2 Topologia da Arquitetura
 
 **Tipo**: Centralizado
 **Rede VPC**: 172.31.0.0/16
@@ -827,7 +822,7 @@ Entre suas principais características estão o suporte a tipos de dados relacio
 
 ---
 
-### 2.2.6.3 Máquina Virtual na Nuvem
+### 2.2.5.3 Máquina Virtual na Nuvem
 
 Foi criada uma máquina virtual na nuvem (instância EC2) para atuar como Servidor PostgresSQL da Matriz da Cooperativa de Crédito.
 
@@ -843,7 +838,7 @@ Por se tratar de u banco de dados SQL, onde as nformações mais sensiveis se re
 
 ---
 
-### 2.2.6.4 Instalação e Configuração do PostgresSQL
+### 2.2.5.4 Instalação e Configuração do PostgresSQL
 
 #### a) Atualização dos pacotes
 
@@ -903,7 +898,7 @@ CREATE DATABASE meu_banco OWNER nome_usuario
 
 ---
 
-### 2.2.6.5 Configuração do Diretório e comunicação para o Banco de Dados
+### 2.2.5.5 Configuração do Diretório e comunicação para o Banco de Dados
 
 Para realizar a configuração para acesso remoto, primeiramente é preciso acessar o arquivo de configuração do postgressql que se localiza na pasta `/etc/postgresql/18/main`.
 
@@ -937,7 +932,7 @@ sudo systemctl restart postgresql
 
 ---
 
-### 2.2.6.6 Teste de Funcionamento e Acesso Web
+### 2.2.5.6 Teste de Funcionamento e Acesso Web
 
 Para validar o funcionamento do servidor, o acesso foi realizado de duas formas, utilizando um terminal de uma maquia que simulava a de administração de alguma filial da empresa e pela interface grafica, com o `PgAdmin4`:
 
@@ -958,7 +953,7 @@ Para validar o funcionamento do servidor, o acesso foi realizado de duas formas,
 
 ---
 
-### 2.2.6.7 Configuração de Rede e Segurança
+### 2.2.5.7 Configuração de Rede e Segurança
 
 A conectividade entre a instância e os usuários externos dependeu das configurações de rede na **AWS**:
 
