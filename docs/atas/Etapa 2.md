@@ -64,7 +64,7 @@ Cada membro ficou responsável pela configuração de um serviço inicialmente:
 
 # Atividades Individuais – 2ª Etapa
 
-- **Carlos** → configurei o ftp tanto em server quanto cliente na aws, e ajudei a Luana pontualmente no AD.
+- **Carlos** → configurei o ftp tanto em server quanto cliente na aws, e ajudei a Luana pontualmente no AD. Também passei a documentação do arquivo .md para o pdf entregue.
 - **Luana** → fiz o servidor e cliente AD e a documentação do mesmo, ajudei a Laura no servidor DHCP e editei o video da entrega.
 - **Odair** → Configurei o NFS na AWS, contemplando o servidor e as instâncias clientes. No servidor, realizei a exportação dos diretórios e as configurações de segurança necessárias; nas instâncias clientes, fiz o mapeamento e testes de acesso. Documentei todo o processo e validei o funcionamento por meio de testes de leitura e escrita entre as instâncias.  
 - **Lucas** → Configurei o servidor web em uma instância EC2 na AWS. Após realizar as configurações necessárias no servidor, efetuei um teste utilizando um novo arquivo HTML para verificar o funcionamento do ambiente.
