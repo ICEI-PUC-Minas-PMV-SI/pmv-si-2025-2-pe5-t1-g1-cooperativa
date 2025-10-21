@@ -450,173 +450,6 @@ de modo que sem ele — ou com uma configuração incorreta — a instância nã
 Na AWS, as instâncias EC2 recebem automaticamente um DNS interno via DHCP da VPC, o Netplan, por sua vez, gerencia essa rede, aplicando corretamente as configurações de IP e DNS.
 
 
-## 2.2.4 Serviço de Banco de Dados (PostgreSQL)
-
-### 2.2.4.1 Introdução
-
-O PostgreSQL, comumente abreviado como "Postgres", é um sistema de gerenciamento de banco de dados relacional a objetos (ORDBMS) de código aberto, conhecido por sua confiabilidade, flexibilidade e suporte a padrões técnicos abertos.
-
-Entre suas principais características estão o suporte a tipos de dados relacionais e não relacionais, como JSON, além de recursos avançados como chaves estrangeiras, triggers, views, procedimentos armazenados, funções agregadas e suporte a múltiplas linguagens de programação, incluindo Python, Java, C e Ruby.
-
----
-
-### 2.2.4.2 Topologia da Arquitetura
-
-**Tipo**: Centralizado
-**Rede VPC**: 172.31.0.0/16
-**Acesso permitido:**: 0.0.0.0/0 *(para testes - POC)*
-
-| Função | Nome da Instância | IPv4 Privado  | IPv4 Público  | Papel        |
-| ------ | ----------------- | ------------- | ------------- | ------------ |
-| Matriz | Unbutu_Server        | 172.31.27.40 | 3.87.77.159 | PostgresSQL |
-
-> **Observação**: Ambiente configurado em uma instância **AWS EC2** do **tipo t3.small**, executando **Ubuntu Server 24.04 LTS.**
-
----
-
-### 2.2.4.3 Máquina Virtual na Nuvem
-
-Foi criada uma máquina virtual na nuvem (instância EC2) para atuar como Servidor PostgresSQL da Matriz da Cooperativa de Crédito.
-
-A instância foi provisionada na AWS (Amazon Web Services) utilizando o Ubuntu Server 24.04 LTS como sistema operacional, dentro da mesma VPC (Virtual Private Cloud) que conecta as demais filiais.
-
-<img width="1920" height="966" alt="image" src="https://github.com/user-attachments/assets/9000fdf7-d73d-4cb0-82ca-271ded48aa0d" />
-
-Por se tratar de u banco de dados SQL, onde as nformações mais sensiveis se residem, o foco é sempre realizar uma configuração que limite o acesso a maquina virtual com o banco de dados. Porém, para fins de prova de conceito (POC), a instância foi configurada com acesso SSH (porta 22) e HTTP (porta 5432) liberados no grupo de segurança.
-
-<img width="928" height="458" alt="image" src="https://github.com/user-attachments/assets/a15caa49-fa71-4ccf-9b78-4c57c078f0d8" />
-
-> Essa máquina representa o **servidor web central** da Cooperativa, responsável por disponibilizar informações corporativas e documentos para as filiais de forma online.
-
----
-
-### 2.2.4.4 Instalação e Configuração do PostgresSQL
-
-#### a) Atualização dos pacotes
-
-Atualize a lista de pacotes do sistema com o comando:
-
-```bash
-sudo apt update && sudo apt upgrade -y
-```
-
-#### b) Instalação do PostgresSQL
-
-Instale o PostgreSQL e os componentes adicionais
-
-```bash
-sudo apt install postgresql postgresql-contrib
-```
-
-#### c) Habilitando Serviço
-
-Após a instalação, verifique o status do serviço para garantir que o serviço está ativo e em execução.
-
-```bash
-sudo systemctl status postgresql
-```
-
-#### d) Iniciando Serviço
-
-Para iniciar o serviço e habilitá-lo para iniciar automaticamente ao ligar o sistema, utilize o comando:
-
-```bash
-sudo systemctl start postgresql && sudo systemctl enable postgresql
-```
-
-#### e) Criando um novo usuario
-
-Acesse o prompt do PostgreSQL como o usuário administrador 
-
-```bash
-sudo -i -u postgres psql
-```
-
-Para criar um novo usuário (role), use comando SQL:
-```bash
-CREATE ROLE novo_usuario WITH LOGIN PASSWORD 'sua_senha' 
-```
-Caso queira trocar a senha do usuario `postgres` ou de qualquer outro usuario basta executar o comando:
-```bash
-ALTER USER nome_usuario WITH PASSWORD nova_senha;
-```
-#### f) Criando um novo banco de dados
-
-Para criar um banco de dados, é preciso executar o seguinte comando:
-
-```bash
-CREATE DATABASE meu_banco OWNER nome_usuario
-```
-
----
-
-### 2.2.4.5 Configuração do Diretório e comunicação para o Banco de Dados
-
-Para realizar a configuração para acesso remoto, primeiramente é preciso acessar o arquivo de configuração do postgressql que se localiza na pasta `/etc/postgresql/18/main`.
-
-Para editar o arquivo postgresql.conf, é preciso utilizar o seguite comando:
-
-```bash
-sudo nano /etc/postgresql/14/main/postgresql.conf
-``` 
-Altere a linha:
-
-`listen_addresses = 'localhost'`
-
-Para:
-
-`listen_addresses = '*'`
-
-O segundo arquivo a ser editado é nomeado de `pg_hba.conf` e para acessa-lo, é preciso exetutar o seguinte comando:
-
-```bash
-sudo nano /etc/postgresql/14/main/pg_hba.conf
-```
-Após acessar o arquivo, insira a seguinte linha no final dele:
-
-`host    all             all             0.0.0.0/0               md5`
-
-Com todas essas alterações implementadas, reinicie o PostgreSQL:
-
-```bash
-sudo systemctl restart postgresql
-```
-
----
-
-### 2.2.4.6 Teste de Funcionamento e Acesso Web
-
-Para validar o funcionamento do servidor, o acesso foi realizado de duas formas, utilizando um terminal de uma maquia que simulava a de administração de alguma filial da empresa e pela interface grafica, com o `PgAdmin4`:
-
-##### PgAdmin4:
-
-<img width="1920" height="1047" alt="image" src="https://github.com/user-attachments/assets/449acca5-3746-478d-9a6b-ae8c146742e3" />
-
-##### Terminal:
-
-<img width="562" height="302" alt="image" src="https://github.com/user-attachments/assets/e18f14b9-7fbd-49c9-9708-8df6c79e018c" />
-
-#### Dados dos usuarios criados:
-| Nome de usuario | Senha | Descrição     | Banco de Dados |
-| ------- | ----- | ------------- | ---------------- |
-| postgres     | CredVerde_31    | Usuário padrão/root do Postgressql | Todos |
-| admin     | ModoPet.05    | Usuário Administrador do Postgressql | credvaledoce |
-| teste     | teste1234    | Usuário criado somente para testes de conexões, não possuindo nenhum acesso aos banco de dados | Nenhum |
-
----
-
-### 2.2.2.7 Configuração de Rede e Segurança
-
-A conectividade entre a instância e os usuários externos dependeu das configurações de rede na **AWS**:
-
-| Serviço | Porta | Descrição     | Origem Permitida |
-| ------- | ----- | ------------- | ---------------- |
-| SSH     | 22    | Acesso remoto | 0.0.0.0/0        |
-| HTTP    | 5432    | Acesso PostgresSQL    | 0.0.0.0/0        |
-
->Em ambiente de produção, recomenda-se **restringir o acesso do Banco de dados a endereços específicos** e utilizar sempre a criptografia de senhas e dados sensiveis.
-
-
 ## 2.X.X Serviço de AD (Active Directory)
 
 
@@ -967,3 +800,172 @@ Dessa forma:
 - Há consistência e simplicidade na administração do sistema
 
 Assim, o NFS implementa o conceito de sistema de arquivos distribuído, assegurando consistência, integridade e facilidade operacional.
+
+
+
+## 2.2.6 Serviço de Banco de Dados (PostgreSQL)
+
+### 2.2.6.1 Introdução
+
+O PostgreSQL, comumente abreviado como "Postgres", é um sistema de gerenciamento de banco de dados relacional a objetos (ORDBMS) de código aberto, conhecido por sua confiabilidade, flexibilidade e suporte a padrões técnicos abertos.
+
+Entre suas principais características estão o suporte a tipos de dados relacionais e não relacionais, como JSON, além de recursos avançados como chaves estrangeiras, triggers, views, procedimentos armazenados, funções agregadas e suporte a múltiplas linguagens de programação, incluindo Python, Java, C e Ruby.
+
+---
+
+### 2.2.6.2 Topologia da Arquitetura
+
+**Tipo**: Centralizado
+**Rede VPC**: 172.31.0.0/16
+**Acesso permitido:**: 0.0.0.0/0 *(para testes - POC)*
+
+| Função | Nome da Instância | IPv4 Privado  | IPv4 Público  | Papel        |
+| ------ | ----------------- | ------------- | ------------- | ------------ |
+| Matriz | Unbutu_Server        | 172.31.27.40 | 3.87.77.159 | PostgresSQL |
+
+> **Observação**: Ambiente configurado em uma instância **AWS EC2** do **tipo t3.small**, executando **Ubuntu Server 24.04 LTS.**
+
+---
+
+### 2.2.6.3 Máquina Virtual na Nuvem
+
+Foi criada uma máquina virtual na nuvem (instância EC2) para atuar como Servidor PostgresSQL da Matriz da Cooperativa de Crédito.
+
+A instância foi provisionada na AWS (Amazon Web Services) utilizando o Ubuntu Server 24.04 LTS como sistema operacional, dentro da mesma VPC (Virtual Private Cloud) que conecta as demais filiais.
+
+<img width="1920" height="966" alt="image" src="https://github.com/user-attachments/assets/9000fdf7-d73d-4cb0-82ca-271ded48aa0d" />
+
+Por se tratar de u banco de dados SQL, onde as nformações mais sensiveis se residem, o foco é sempre realizar uma configuração que limite o acesso a maquina virtual com o banco de dados. Porém, para fins de prova de conceito (POC), a instância foi configurada com acesso SSH (porta 22) e HTTP (porta 5432) liberados no grupo de segurança.
+
+<img width="928" height="458" alt="image" src="https://github.com/user-attachments/assets/a15caa49-fa71-4ccf-9b78-4c57c078f0d8" />
+
+> Essa máquina representa o **servidor web central** da Cooperativa, responsável por disponibilizar informações corporativas e documentos para as filiais de forma online.
+
+---
+
+### 2.2.6.4 Instalação e Configuração do PostgresSQL
+
+#### a) Atualização dos pacotes
+
+Atualize a lista de pacotes do sistema com o comando:
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+#### b) Instalação do PostgresSQL
+
+Instale o PostgreSQL e os componentes adicionais
+
+```bash
+sudo apt install postgresql postgresql-contrib
+```
+
+#### c) Habilitando Serviço
+
+Após a instalação, verifique o status do serviço para garantir que o serviço está ativo e em execução.
+
+```bash
+sudo systemctl status postgresql
+```
+
+#### d) Iniciando Serviço
+
+Para iniciar o serviço e habilitá-lo para iniciar automaticamente ao ligar o sistema, utilize o comando:
+
+```bash
+sudo systemctl start postgresql && sudo systemctl enable postgresql
+```
+
+#### e) Criando um novo usuario
+
+Acesse o prompt do PostgreSQL como o usuário administrador 
+
+```bash
+sudo -i -u postgres psql
+```
+
+Para criar um novo usuário (role), use comando SQL:
+```bash
+CREATE ROLE novo_usuario WITH LOGIN PASSWORD 'sua_senha' 
+```
+Caso queira trocar a senha do usuario `postgres` ou de qualquer outro usuario basta executar o comando:
+```bash
+ALTER USER nome_usuario WITH PASSWORD nova_senha;
+```
+#### f) Criando um novo banco de dados
+
+Para criar um banco de dados, é preciso executar o seguinte comando:
+
+```bash
+CREATE DATABASE meu_banco OWNER nome_usuario
+```
+
+---
+
+### 2.2.6.5 Configuração do Diretório e comunicação para o Banco de Dados
+
+Para realizar a configuração para acesso remoto, primeiramente é preciso acessar o arquivo de configuração do postgressql que se localiza na pasta `/etc/postgresql/18/main`.
+
+Para editar o arquivo postgresql.conf, é preciso utilizar o seguite comando:
+
+```bash
+sudo nano /etc/postgresql/14/main/postgresql.conf
+``` 
+Altere a linha:
+
+`listen_addresses = 'localhost'`
+
+Para:
+
+`listen_addresses = '*'`
+
+O segundo arquivo a ser editado é nomeado de `pg_hba.conf` e para acessa-lo, é preciso exetutar o seguinte comando:
+
+```bash
+sudo nano /etc/postgresql/14/main/pg_hba.conf
+```
+Após acessar o arquivo, insira a seguinte linha no final dele:
+
+`host    all             all             0.0.0.0/0               md5`
+
+Com todas essas alterações implementadas, reinicie o PostgreSQL:
+
+```bash
+sudo systemctl restart postgresql
+```
+
+---
+
+### 2.2.6.6 Teste de Funcionamento e Acesso Web
+
+Para validar o funcionamento do servidor, o acesso foi realizado de duas formas, utilizando um terminal de uma maquia que simulava a de administração de alguma filial da empresa e pela interface grafica, com o `PgAdmin4`:
+
+##### PgAdmin4:
+
+<img width="1920" height="1047" alt="image" src="https://github.com/user-attachments/assets/449acca5-3746-478d-9a6b-ae8c146742e3" />
+
+##### Terminal:
+
+<img width="562" height="302" alt="image" src="https://github.com/user-attachments/assets/e18f14b9-7fbd-49c9-9708-8df6c79e018c" />
+
+#### Dados dos usuarios criados:
+| Nome de usuario | Senha | Descrição     | Banco de Dados de Acesso |
+| ------- | ----- | ------------- | ---------------- |
+| postgres     | CredVerde_31    | Usuário padrão/root do Postgressql | Todos |
+| admin     | ModoPet.05    | Usuário Administrador do Postgressql | credvaledoce |
+| teste     | teste1234    | Usuário criado somente para testes de conexões, não possuindo nenhum acesso aos banco de dados | Nenhum |
+
+---
+
+### 2.2.6.7 Configuração de Rede e Segurança
+
+A conectividade entre a instância e os usuários externos dependeu das configurações de rede na **AWS**:
+
+| Serviço | Porta | Descrição     | Origem Permitida |
+| ------- | ----- | ------------- | ---------------- |
+| SSH     | 22    | Acesso remoto | 0.0.0.0/0        |
+| HTTP    | 5432    | Acesso PostgresSQL    | 0.0.0.0/0        |
+
+>Em ambiente de produção, recomenda-se **restringir o acesso do Banco de dados a endereços específicos** e utilizar sempre a criptografia de senhas e dados sensiveis.
+
