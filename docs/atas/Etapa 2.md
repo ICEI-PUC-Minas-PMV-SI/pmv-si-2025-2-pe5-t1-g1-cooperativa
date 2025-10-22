@@ -68,6 +68,6 @@ Cada membro ficou responsável pela configuração de um serviço inicialmente:
 - **Luana** → fiz o servidor e cliente AD e a documentação do mesmo, ajudei a Laura no servidor DHCP e editei o video da entrega.
 - **Odair** → Configurei o NFS na AWS, contemplando o servidor e as instâncias clientes. No servidor, realizei a exportação dos diretórios e as configurações de segurança necessárias; nas instâncias clientes, fiz o mapeamento e testes de acesso. Documentei todo o processo e validei o funcionamento por meio de testes de leitura e escrita entre as instâncias.  
 - **Lucas** → Configurei o servidor web em uma instância EC2 na AWS. Após realizar as configurações necessárias no servidor, efetuei um teste utilizando um novo arquivo HTML para verificar o funcionamento do ambiente.
-- **Yan** →   
+- **Yan** → Configurei o DNS na AWS, Utilizou o DNS interno da VPC fornecido pelo DHCP da AWS para a instância EC2, Garantindo que a instância pudesse resolver nomes de domínio. Testei a resolução de nomes usando endereços IP e nomes de domínio:
 - **Victor** →  Configurei o Banco de dados PostgresSQL na AWS, fiz o processo de validação em varios meios diferentes e realizei a documentação dos mesmos.
 - **Laura** → fiz o servidor e o cliente DHCP e a documentação do mesmo. 
