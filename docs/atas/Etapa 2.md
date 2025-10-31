@@ -70,4 +70,23 @@ Cada membro ficou responsável pela configuração de um serviço inicialmente:
 - **Lucas** → Configurei o servidor web em uma instância EC2 na AWS. Após realizar as configurações necessárias no servidor, efetuei um teste utilizando um novo arquivo HTML para verificar o funcionamento do ambiente.
 - **Yan** → Configurei o DNS na AWS, Utilizou o DNS interno da VPC fornecido pelo DHCP da AWS para a instância EC2, Garantindo que a instância pudesse resolver nomes de domínio. Testei a resolução de nomes usando endereços IP e nomes de domínio:
 - **Victor** →  Configurei o Banco de dados PostgresSQL na AWS, fiz o processo de validação em varios meios diferentes e realizei a documentação dos mesmos.
-- **Laura** → fiz o servidor e o cliente DHCP e a documentação do mesmo. 
+- **Laura** → fiz o servidor e o cliente DHCP e a documentação do mesmo.
+
+---
+
+# Cronograma de Atividades – 3ª Etapa
+
+| Equipe | Carga Horária | Ações/Atividades | Data |
+|--------|---------------|-----------------|------|
+| Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 2:30 h | Reunião para a definição de layoults e discussão de dificuldades da etapa. | 30/09 |
+
+
+# Atividades Individuais – 3ª Etapa
+
+- **Carlos** → 
+- **Luana** → 
+- **Odair** → 
+- **Lucas** → 
+- **Yan** → 
+- **Victor** →  
+- **Laura** → 
