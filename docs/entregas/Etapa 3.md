@@ -11,7 +11,8 @@
 #### Imagens 
 
 ##### Geral
-<img width="1920" height="2407" alt="image" src="https://github.com/user-attachments/assets/75dc7939-a0f5-4561-8989-98efafd39d28" />
+<img width="1716" height="284" alt="image" src="https://github.com/user-attachments/assets/5ba9cdf1-d7de-4ac6-a1db-5060bacdaa7e" />
+
 > Será atualizada
 
 ##### Status de todas as máquinas 
@@ -28,7 +29,7 @@
 <img width="1719" height="282" alt="image" src="https://github.com/user-attachments/assets/918433f7-7e3f-40aa-86c0-06100a7afe4f" />
 
 ##### Banco
-<img width="1714" height="280" alt="image" src="https://github.com/user-attachments/assets/94b667cf-746e-409d-a6b8-81f775f7ed87" />
+<img width="1720" height="281" alt="image" src="https://github.com/user-attachments/assets/c0fc5998-2d97-40f6-93ad-ab110f45b570" />
 > Será atualizada
 
 ##### WEB
