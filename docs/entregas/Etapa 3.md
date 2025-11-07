@@ -11,12 +11,11 @@
 #### Imagens 
 
 ##### Geral
-<img width="1716" height="284" alt="image" src="https://github.com/user-attachments/assets/5ba9cdf1-d7de-4ac6-a1db-5060bacdaa7e" />
-
+<img width="1920" height="2475" alt="image" src="https://github.com/user-attachments/assets/1fcb8411-c39f-4e0a-9810-474cc31cd347" />
 > Será atualizada
 
 ##### Status de todas as máquinas 
-<img width="1718" height="281" alt="image" src="https://github.com/user-attachments/assets/b57eeb76-b322-4d2a-9801-cc06904ed91b" />
+<img width="1716" height="284" alt="image" src="https://github.com/user-attachments/assets/5ba9cdf1-d7de-4ac6-a1db-5060bacdaa7e" />
 > Será atualizada
 
 ##### Monitoramento de RAM e CPU Geral
