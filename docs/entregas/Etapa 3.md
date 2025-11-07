@@ -41,7 +41,23 @@ Em síntese, o serviço NFS operando em uma instância AWS apresenta desempenho 
 
 ##### Banco
 <img width="1720" height="281" alt="image" src="https://github.com/user-attachments/assets/c0fc5998-2d97-40f6-93ad-ab110f45b570" />
-> Será atualizada
+## 3.2.X Monitoramento Serviço PostgreSQL
+
+Os gráficos apresentados nas Figuras XX, XX e XX referem-se ao monitoramento do serviço PostgreSQL, que é um gerenciador de banco de dados relacional com o foco na segurança e escalabilidade para a empresa. Foi configurado utilizando uma instância do EC2 da AWS, é um sistema responsável por armazenar os dados da matriz em nuvem. O monitoramento foi realizado por meio do Zabbix Agent, com base nos indicadores Disk Space Used, Disk Utilization e Disk Network (Kbps), que permitem avaliar respectivamente a ocupação do volume, a utilização do espaço de armazenamento pelo PostgreSQL e a quantidade de dados trafegados durante um periodo de tempo.
+
+No gráfico da Figura XX (Postgres-Matriz – Disk Space Used), mostra a proporção do espaço total em disco que está atualmente sendo utilizado pelo servidor. O valor destacado é de 46,30%. O espaço em disco é um recurso crítico para qualquer servidor de banco de dados. Se o disco encher, o PostgreSQL pode parar de funcionar, resultando em indisponibilidade do serviço, falhas em transações e possivelmente corrupção de dados. Um uso de 46,30% indica que pouco menos da metade da capacidade total do disco está sendo utilizada. Isso é geralmente considerado uma situação saudável e segura, pois há espaço suficiente disponível para crescimento futuro, operações de manutenção (como backups, vacuums, etc.) e picos não planejados no uso.
+
+Na sequência, o gráfico da Figura XX (Postgres-Matriz – Disk Utilization) é um gráfico que demostra mostra a taxa de utilização do disco (I/O – operações de leitura e escrita) ao longo do tempo. Os valores são muito baixos, variando entre 0.01% e 0.08%. A utilização do disco (I/O) mede o quão ativo e sobrecarregado o subsistema de armazenamento está. Mesmo com espaço livre, um disco com I/O muito alto (100% de utilização) pode se tornar um gargalo, tornando o sistema lento, pois as operações ficam na fila aguardando para serem lidas ou escritas. Os valores extremamente baixos (menos de 0,1%) indicam que o servidor não está sob pressão de I/O. O disco está respondendo rapidamente às solicitações, sem formar filas. Isso é ideal para o desempenho do banco de dados, especialmente para o PostgreSQL, que é intensivo em operações de disco.
+
+Por fim, o gráfico da Figura XX (NFS-Matriz – Disk Network) que monitora o tráfego de rede do servidor, especificamente a taxa de transferência de dados nas interfaces de rede ens6 (dados recebidos) e ens5 (dados enviados). A unidade de medida é Kbps (Kilobits por segundo), e o pico mostrado é de aproximadamente 8 Kbps. A rede é o canal de comunicação do servidor de banco de dados com suas aplicações clientes e outros serviços. É crucial monitorar para identificar gargalos de comunicação, picos de tráfego anormais (que podem indicar um ataque ou problema na aplicação) ou para planejamento de capacidade. Um tráfego na casa de poucos Kbps é considerado muito baixo. Isso sugere que, no momento do monitoramento, o servidor estava lidando com uma carga de trabalho leve ou praticamente ociosa em termos de comunicação de rede. Não há congestionamento ou gargalo de rede. Para um servidor de banco de dados em produção sob carga normal, esperariam-se valores significativamente mais altos (Mbps ou até Gbps).
+
+Com base nos dados monitorados, o servidor Postgres-Matriz está em um estado extremamente saudável e sem pressão em todos os recursos críticos analisados:
+
+- Disco: Tem espaço mais que suficiente (46,30% usado) e não sofre com lentidão de I/O (utilização abaixo de 0,1%).
+- Rede: O tráfego é mínimo, indicando que não há uma carga pesada de consultas ou transferência de dados no momento.
+
+Esta é uma situação ideal, indicando que há uma grande margem para crescimento na carga de trabalho sem que o servidor enfrente problemas de desempenho imediatos. A monitorização contínua é essencial para detectar quando esses números começarem a aumentar para níveis que exijam atenção.
+
 
 ##### WEB
 <img width="1719" height="282" alt="image" src="https://github.com/user-attachments/assets/610795aa-5b3f-45f9-9d9b-d1b4d7c816b1" />
