@@ -63,5 +63,6 @@ Esta é uma situação ideal, indicando que há uma grande margem para crescimen
 <img width="1719" height="282" alt="image" src="https://github.com/user-attachments/assets/610795aa-5b3f-45f9-9d9b-d1b4d7c816b1" />
 
 ##### DNS
-<img width="1718" height="279" alt="image" src="https://github.com/user-attachments/assets/4e856d10-1529-4cf4-a196-b5e50964aae1" />
+<img width="1716" height="280" alt="image" src="https://github.com/user-attachments/assets/cff34d1a-3be3-46a8-bdb6-5c28d2025a63" />
+
 > Será atualizada
