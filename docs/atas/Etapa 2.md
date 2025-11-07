@@ -74,19 +74,4 @@ Cada membro ficou responsável pela configuração de um serviço inicialmente:
 
 ---
 
-# Cronograma de Atividades – 3ª Etapa
 
-| Equipe | Carga Horária | Ações/Atividades | Data |
-|--------|---------------|-----------------|------|
-| Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 2:30 h | Reunião para a definição de layoults e discussão de dificuldades da etapa. | 30/09 |
-
-
-# Atividades Individuais – 3ª Etapa
-
-- **Carlos** → 
-- **Luana** → 
-- **Odair** → 
-- **Lucas** → 
-- **Yan** → 
-- **Victor** →  
-- **Laura** → 
