@@ -12,7 +12,15 @@
 
 - **Carlos** → 
 - **Luana** → 
-- **Odair** → 
+
+- **Odair** → Nessa terceira etapa do projeto, voltada à implementação da gerência e monitoração do ambiente de redes, participei do planejamento das atividades e fiquei responsável pela configuração inicial da ferramenta Zabbix em um servidor local, com o objetivo de monitorar o serviço NFS (Network File System).
+
+Durante o planejamento, colaborei na definição da proposta de template do dashboard de monitoramento, discutindo com o grupo quais indicadores seriam mais relevantes para acompanhamento no servidor central — como utilização de CPU, memória, espaço em disco e disponibilidade do serviço NFS. Definimos que o servidor central de monitoramento seria alocado na máquina do Carlos, onde seriam concentradas as coletas e visualizações gráficas. 
+
+Após a verificação de que o monitoramento local estava operacional, iniciamos a integração com os serviços hospedados na AWS. Nessa fase, realizei os ajustes de configuração no diretório /etc/zabbix/zabbix_agentd.conf da instância NFS-Matriz, inserindo o IP público do Servidor Geral (máquina do Carlos) para estabelecer a comunicação entre o agente Zabbix e o servidor de monitoramento. Também forneci o endereço IP público da instância NFS-Matriz ao Carlos, garantindo que o servidor geral conseguisse identificar e monitorar adequadamente o serviço remoto. 
+
+Em seguida, realizamos testes de leitura e escrita de arquivos entre as máquinas, Matriz e Filiais, validando a comunicação e confirmando o correto funcionamento do monitoramento. Por fim, fiquei encarregado de documentar o processo de configuração e monitoração do serviço NFS, incluindo descrever os resultados obtidos nos gráficos gerados pelo Zabbix após a execução dos testes de desempenho e disponibilidade.
+
 - **Lucas** → 
 - **Yan** → 
 - **Victor** →  
