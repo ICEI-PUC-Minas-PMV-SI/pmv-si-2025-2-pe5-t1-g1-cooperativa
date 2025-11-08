@@ -14,6 +14,7 @@
 - **Luana** → 
 
 - **Odair** 
+
 Nessa terceira etapa do projeto, voltada à implementação da gerência e monitoração do ambiente de redes, participei do planejamento das atividades e fiquei responsável pela configuração inicial da ferramenta Zabbix em um servidor local, com o objetivo de monitorar o serviço NFS (Network File System).
 
 Durante o planejamento, colaborei na definição da proposta de template do dashboard de monitoramento, discutindo com o grupo quais indicadores seriam mais relevantes para acompanhamento no servidor central — como utilização de CPU, memória, espaço em disco e disponibilidade do serviço NFS. Definimos que o servidor central de monitoramento seria alocado na máquina do Carlos, onde seriam concentradas as coletas e visualizações gráficas. 
