@@ -25,10 +25,10 @@ O gráfico de tráfego de rede mostrou que não houveram perdas de pacotes ou re
 
 
 Os gráficos de uso de espaço apesar de demonstrar que o uso está no máximo, foi acrescentado uma memória extra para o melhor funcionamento da aplicação.
+
 <img width="407" height="310" alt="511869112-6fa55489-b51c-4669-840e-a4ad100b22f2" src="https://github.com/user-attachments/assets/fc2e1023-4dd8-4906-bd56-abe0bc1f188b" />
+
 <img width="418" height="305" alt="511869126-d38cfcef-bb2d-4a3b-8e90-b67f00beeaf8" src="https://github.com/user-attachments/assets/4f721579-8cb1-4dc9-85fa-33cdff8e81c4" />
-
-
 
 ### 3.1.2.1 Considerações Finais
 A combinação do Zabbix Appliance com um servidor AD em um ambiente virtual local cria uma solução robusta de monitoramento e administração de rede. Essa arquitetura permite que os administradores mantenham total controle sobre os recursos, sem depender de serviços externos, e ainda aproveitem a flexibilidade de um ambiente virtualizado.
