@@ -128,6 +128,27 @@ Com base na análise dos três indicadores apresentados na Figura XX, conclui-se
 Em síntese, o ambiente web monitorado mostra-se saudável e com ampla margem de desempenho, sendo recomendado apenas o restabelecimento do monitoramento do espaço em disco para assegurar a observabilidade integral dos recursos críticos do sistema.
 
 ##### DNS
+
+### 3.2.5 Monitoramento Serviço DNS  
+
+Nesta etapa foi realizado o monitoramento do "serviço DNS (Domain Name System)" hospedado na instância AWS EC2**, utilizando o Zabbix Agent - para coleta de métricas de desempenho e disponibilidade.  
+Como o DNS tem papel essencial na rede, sendo responsável por basicamente traduzir nomes de domínio em endereços IP, logo, os usuários que consultar os serviços sem a necessidade de utilizar e "decorar" endereços numéricos.  
+
 <img width="1716" height="280" alt="image" src="https://github.com/user-attachments/assets/cff34d1a-3be3-46a8-bdb6-5c28d2025a63" />
 
-> Será atualizada
+O gráfico de "Query Time" expõe o "tempo médio de resposta das consultas DNS" durante o período monitorado.  
+Desse modo, observa-se que os valores permaneceram **próximos de 0 ms**, com variação mínima, indicando excelente desempenho do servidor.  
+Logo, esse resultado evidencia que o serviço DNS está resolvendo os nomes de domínio de forma "rápida e estável", sem atrasos perceptíveis ou falhas de comunicação.  
+
+---
+
+#### 3.2.6 DNS Server – Network Inbound e Outbound  
+
+Os gráficos de **Network Inbound** e **Network Outbound** indicam o fluxo de dados recebidos e enviados pela interface de rede da instância DNS.  
+Verifica-se uma **atividade de rede constante**, com picos variando entre **5 Kbps e 25 Kbps**, o que demonstra que o servidor está sendo acessado regularmente e processando consultas em diferentes momentos.  
+A alternância entre os valores de entrada e saída é esperada e representa o ciclo natural de **recebimento de consultas (Inbound)** e **envio de respostas (Outbound)**.  
+
+Portanto, o monitoramento do **servidor DNS** apresentou **excelente estabilidade e desempenho**, com **tempo médio de resposta próximo de zero** e **tráfego de rede coerente com o volume de consultas**.  
+Esses resultados confirmam que o serviço está corretamente configurado, operando dentro dos padrões esperados e garantindo **alta disponibilidade** para os demais sistemas dependentes da resolução de nomes.  
+Dessa forma, o **Zabbix** se mostrou uma ferramenta eficaz para acompanhar a performance do DNS, permitindo detectar possíveis falhas de rede ou lentidão antes que impactem o ambiente.  
+O comportamento observado reforça a confiabilidade da configuração e a eficiência da infraestrutura implementada na **AWS**.
