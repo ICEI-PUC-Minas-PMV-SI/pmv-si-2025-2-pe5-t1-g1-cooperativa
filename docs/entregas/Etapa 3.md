@@ -8,29 +8,25 @@
 
 # 3.2 Monitoramento em Máquinas na AWS ( Amazon Web Services ) 
 
+<img width="1716" height="284" alt="511047702-5ba9cdf1-d7de-4ac6-a1db-5060bacdaa7e" src="https://github.com/user-attachments/assets/11d2df1c-2895-4e25-ae6b-6ea5327bcc4d" />
+
+<img width="857" height="283" alt="RAM" src="https://github.com/user-attachments/assets/f836aba9-08d4-4e1f-99dd-f415f5a0a105" />
+
+<img width="863" height="283" alt="CPU" src="https://github.com/user-attachments/assets/d2e0e55a-6d85-4fc0-8ff1-1f7ce685d694" />
+
 Para o ambiente em nuvem da AWS foi criada uma nova instância na EC2 para instalar e hospedar o servidor Zabbix que monitora todas as outras máquinas dos outros serviços. No frontend foi configurado um dashboard para unificar todos os gráficos em um só local, foi definido que os dados relevantes para todos os serviços seriam colocados cada um em um gráfico apenas, sendo eles a disponibilidade do agente, o uso de memória RAM e o uso de CPU.
 
 Na Figura XX é possível ver a disponibilidade do agente em cada máquina, o valor retornado para o monitor Zabbix é do tipo 0 ou 1, sendo 0 o agente não está respondendo e 1 significando que o cliente na máquina monitorada está funcional. Com isso foi configurado para que ao receber o valor 0 faça com que a cor de fundo fique vermelha e com o valor 1 fique verde, fazendo assim que fique intuitivo e de rápida assimilação a informação sobre a disponibilidade do monitoramento.
 
 Para o uso da memória RAM e CPU foi escolhido mostrar os dados em um gráfico de linha em que o uso em porcentagem é representado no eixo y, e o eixo x representa o tempo. Podemos visualizar nas Figuras XX e XX que para todas as máquinas o uso de RAM e CPU foram suficientemente constantes no período monitorado, indicando que a carga sobre as máquinas não estavam sendo preocupantes. Também é possível visualizar no gráfico uma linha superior de gatilho para valores superiores a 90%, com ele é possível configurar alarmes de diversas maneiras para que ao atingir um valor tão alto o responsável tenha conhecimento do ocorrido e possa buscar outros dados para interpretar a fim de diagnosticar o problema e tomar ações para solucioná-lo. 
 
-#### Imagens 
-
-##### Geral
-<img width="1920" height="2475" alt="image" src="https://github.com/user-attachments/assets/1fcb8411-c39f-4e0a-9810-474cc31cd347" />
-> Será atualizada
-
-##### Status de todas as máquinas 
-<img width="1716" height="284" alt="image" src="https://github.com/user-attachments/assets/5ba9cdf1-d7de-4ac6-a1db-5060bacdaa7e" />
-> Será atualizada
-
-##### Monitoramento de RAM e CPU Geral
-<img width="1722" height="283" alt="image" src="https://github.com/user-attachments/assets/cc2fb645-b395-44ca-b177-df389684ad56" />
-
-##### FTP
-<img width="1723" height="280" alt="image" src="https://github.com/user-attachments/assets/a2171516-2622-477f-b080-678113a18441" />
-
 ## 3.2.1 Monitoramento Serviço FTP 
+
+<img width="333" height="277" alt="FTPG1" src="https://github.com/user-attachments/assets/b516fc26-bbe3-4d43-b65c-bbe6f25d10c4" />
+
+<img width="693" height="277" alt="FTPG2" src="https://github.com/user-attachments/assets/bc9dee68-a4eb-4778-96b0-3c9bf7f3e4a3" />
+
+<img width="691" height="278" alt="FTPG3" src="https://github.com/user-attachments/assets/4f35c923-4233-457b-90d5-50f910910b9e" />
 
 Pelo servidor de FTP ser responsável por transferir e armazenar os arquivos foram selecionados o espaço utilizado do disco e o tráfego de rede para serem monitorados por julgar como os dados mais relevantes para o serviço.
 
@@ -38,10 +34,13 @@ No gráfico mostrado pela Figura XX podemos ver que o armazenamento está apenas
 
 Já na Figura XX podemos visualizar o tráfego de rede de entrada e na Figura XX o tráfego de saída da máquina, eles indicam principalmente quando estão acontecendo transferências de arquivos, por meio desses dados pode-se tirar informações como horário em que a máquina é mais utilizada, valor que ela necessidade de banda para funcionar sem ter problemas, até também momentos de anormalidades que podem ser referentes a mau uso, ou algum ataque, por exemplo. No gráfico de entrada, Figura XX, o único pico, que chega a um uso de 8 Mpbs, representa um momento em que foi enviado um arquivo maior para a máquina que está hospedando o serviço, já no gráfico de saída, Figura XX, os picos apresentados podem significar os momentos em que arquivos foram transferidos para uma ou mais máquinas clientes.
 
-##### NFS 
-<img width="1719" height="282" alt="image" src="https://github.com/user-attachments/assets/918433f7-7e3f-40aa-86c0-06100a7afe4f" />
+## 3.2.2 Monitoramento Serviço NFS
 
-## 3.2.X Monitoramento Serviço NFS
+<img width="328" height="274" alt="NFSG1" src="https://github.com/user-attachments/assets/e93e71f3-a7ce-46a4-9a71-685505e1a9f6" />
+
+<img width="687" height="275" alt="NFSG2" src="https://github.com/user-attachments/assets/23cc4b60-1c4e-4c20-a7c3-852527eb369b" />
+
+<img width="688" height="276" alt="NFSG3" src="https://github.com/user-attachments/assets/9fd3dfee-748e-4a9e-a805-662b0a00ec46" />
 
 Os gráficos apresentados nas Figuras XX, XX e XX referem-se ao monitoramento do serviço NFS (Network File System) configurado na instância do EC2 da AWS, responsável por prover o compartilhamento de arquivos entre os ambientes da matriz e da nuvem. O monitoramento foi realizado por meio do Zabbix Agent, com base nos indicadores Disk Space Used, Disk Read Rate (r/s) e Disk Write Rate (w/s), que permitem avaliar respectivamente a ocupação do volume, as operações de leitura e as operações de escrita por segundo no disco utilizado pelo NFS.
 
@@ -53,9 +52,13 @@ Por fim, o gráfico da Figura XX (NFS-Matriz – Disk Write Rate) demonstra comp
 
 Em síntese, o serviço NFS operando em uma instância AWS apresenta desempenho estável, com utilização de disco de 38,86% e taxas de leitura e escrita coerentes com a carga de trabalho aplicada. Não foram observados gargalos, saturações ou anomalias de uso, confirmando a eficiência e a confiabilidade do serviço no ambiente de nuvem.
 
-##### Banco
-<img width="1720" height="281" alt="image" src="https://github.com/user-attachments/assets/c0fc5998-2d97-40f6-93ad-ab110f45b570" />
-## 3.2.X Monitoramento Serviço PostgreSQL
+## 3.2.3 Monitoramento Serviço PostgreSQL
+
+<img width="329" height="274" alt="PSQLG1" src="https://github.com/user-attachments/assets/8431fbea-50ea-4345-803a-2939125bd10a" />
+
+<img width="688" height="277" alt="PSQLG2" src="https://github.com/user-attachments/assets/f4c550ac-af6f-4a38-9e3c-43ad1674edc1" />
+
+<img width="689" height="275" alt="PSQLG3" src="https://github.com/user-attachments/assets/c07a7200-249c-49f8-b6d5-5702f93cae8c" />
 
 Os gráficos apresentados nas Figuras XX, XX e XX referem-se ao monitoramento do serviço PostgreSQL, que é um gerenciador de banco de dados relacional com o foco na segurança e escalabilidade para a empresa. Foi configurado utilizando uma instância do EC2 da AWS, é um sistema responsável por armazenar os dados da matriz em nuvem. O monitoramento foi realizado por meio do Zabbix Agent, com base nos indicadores Disk Space Used, Disk Utilization e Disk Network (Kbps), que permitem avaliar respectivamente a ocupação do volume, a utilização do espaço de armazenamento pelo PostgreSQL e a quantidade de dados trafegados durante um periodo de tempo.
 
