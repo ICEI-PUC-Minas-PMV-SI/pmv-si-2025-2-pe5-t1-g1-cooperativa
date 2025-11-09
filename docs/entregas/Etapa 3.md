@@ -110,7 +110,12 @@ Esta é uma situação ideal, indicando que há uma grande margem para crescimen
 
 
 ## 3.2.4 Monitoramento Serviço WEB
-<img width="1719" height="282" alt="image" src="https://github.com/user-attachments/assets/610795aa-5b3f-45f9-9d9b-d1b4d7c816b1" />
+
+<img width="334" height="281" alt="WebG1" src="https://github.com/user-attachments/assets/60dcf745-ed97-4081-b8d8-885226626672" />
+
+<img width="692" height="282" alt="WebG2" src="https://github.com/user-attachments/assets/76a8924c-5dfb-4e8e-8953-505e11f05f04" />
+
+<img width="692" height="278" alt="WebG3" src="https://github.com/user-attachments/assets/a19e898b-5797-4679-bcc8-dcfa86fea765" />
 
 A Figura XX apresenta o monitoramento do Serviço Web, responsável por hospedar e disponibilizar aplicações corporativas por meio de um servidor dedicado. Esse serviço tem como principal função garantir o acesso estável, rápido e seguro aos sistemas web da organização, sendo essencial para o funcionamento contínuo das aplicações. O monitoramento foi realizado utilizando o Zabbix Agent, com base em três indicadores principais: Disk Space Used, Response Time e Falhas, que permitem acompanhar, respectivamente, o uso de armazenamento, o tempo médio de resposta da aplicação e a ocorrência de erros no serviço.
 
