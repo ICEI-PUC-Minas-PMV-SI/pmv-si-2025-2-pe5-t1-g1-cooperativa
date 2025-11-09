@@ -28,9 +28,6 @@ Os gráficos de uso de espaço apesar de demonstrar que o uso está no máximo, 
 <img width="1169" height="305" alt="Captura de tela 2025-11-08 175346" src="https://github.com/user-attachments/assets/d38cfcef-bb2d-4a3b-8e90-b67f00beeaf8" />
 
 
-Nesse gráfico, o disco C:, apresenta um bom desempenho sem sinais de que há sobrecarga, sem operações pendentes, mostrando que o armazenamento está respondendo rapidamente , os picos podem ser processos normais do sistema acontecendo, o que demonstra que o AD Server está saudável e operando dentro dos parâmetros esperados.
-
-<img width="1157" height="345" alt="Captura de tela 2025-11-08 175222" src="https://github.com/user-attachments/assets/336b45dd-bf04-4b15-b137-df3a95b18456" />
 
 ### 3.1.4 Considerações Finais
 A combinação do Zabbix Appliance com um servidor AD em um ambiente virtual local cria uma solução robusta de monitoramento e administração de rede. Essa arquitetura permite que os administradores mantenham total controle sobre os recursos, sem depender de serviços externos, e ainda aproveitem a flexibilidade de um ambiente virtualizado.
