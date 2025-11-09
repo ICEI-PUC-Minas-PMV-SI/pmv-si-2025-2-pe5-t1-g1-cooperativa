@@ -11,7 +11,8 @@
 # Atividades Individuais – 3ª Etapa
 
 - **Carlos** → criei a máquina para o zabbix server na aws e configurei o zabbix agent na máquina ftp, após reuniões com o grupo decidimos que faríamos a unificação do monitoramento na máquina server no meu laboratório, portanto fiz a configuração dos hosts no frontend do zabbix e montei o dashboard seguindo o que foi conversado e decidido em reunião, no final apenas passei o texto e as imagens do .md no github para o artigo, por enquanto pelo overleaf.
-- **Luana** → 
+
+- **Luana** → Nessa etapa, fiquei responsável pelos servers locais do projeto. Fiz a instalação do Zabbix Appliance e o monitoramento do Server o AD e ajudei no DHCP juntando-o também a minha máquina.
 
 - **Odair** 
 
