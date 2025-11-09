@@ -25,5 +25,7 @@ Em seguida, realizamos testes de leitura e escrita de arquivos entre as máquina
 
 - **Lucas** → 
 - **Yan** → 
-- **Victor** →  
+
+- **Victor** →  Nesta etapa, configurei a maquina virtual Postgres para que pudesse haver a comunicação com a maquina virtual Zabbix que estava realizando o processo de monitoramento de todas as maquinas virtuais da sede matrix. Para realizar um teste inicial, criei uma maquina local utilizando o Zabbix e preparei para que posteriomente pudesse ser implementado ao servidor Zabbix final. Auxiliei o Carlos com a configuração do servidor Zabbix com relação a configuração do Zabbix para realizar o monitoramento do banco de dados e documentei o processo de monitoamento do serviço postgeSQL, incluindo a descrição de todos os graicos que foram gerados pelo Zabbix após os testes de desempenho e processamento no banco de dados.
+  
 - **Laura** → 
