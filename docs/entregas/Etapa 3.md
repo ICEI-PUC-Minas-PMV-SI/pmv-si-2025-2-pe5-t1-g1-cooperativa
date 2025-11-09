@@ -16,6 +16,8 @@ Dessa forma, os itens de monitoramento mais importantes para serem considerados 
 No gráfico de utilização de memória é possível perceber que a utilização da mesma não chegou em pontos críticos e se manteve estável, mostrando a estabilidade no serviço. Já no gráfico de utilização de CPU houveram picos e quedas se mantendo mais estável para o final do gráfico, esses picos podem sinalizar uma sobrecarga devido a inicialização do Windows que depois se estabiliza à medida que o tempo passa.
 
 <img width="1167" height="337" alt="Captura de tela 2025-11-08 175439" src="https://github.com/user-attachments/assets/7be53f34-9d07-4c96-a17d-4823336ae255" />
+<img width="1181" height="343" alt="Captura de tela 2025-11-08 175428" src="https://github.com/user-attachments/assets/1e6680db-4859-48b0-962b-c47c0ff6d889" />
+
 
 O gráfico de tráfego de rede mostrou que não houveram perdas de pacotes ou retransmissões anormais o que demonstra que a comunicação está funcionando corretamente, o tráfego está normal para um AD Server e o pico que houve no gráfico pode demonstrar um momento de maior demanda da rede, o que acompanha o uso normal de um server, um pico controlado e uma queda progressiva.
 
