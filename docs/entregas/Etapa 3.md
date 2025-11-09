@@ -76,8 +76,27 @@ Com base nos dados monitorados, o servidor Postgres-Matriz está em um estado ex
 Esta é uma situação ideal, indicando que há uma grande margem para crescimento na carga de trabalho sem que o servidor enfrente problemas de desempenho imediatos. A monitorização contínua é essencial para detectar quando esses números começarem a aumentar para níveis que exijam atenção.
 
 
-##### WEB
+## 3.2.4 Monitoramento Serviço WEB
 <img width="1719" height="282" alt="image" src="https://github.com/user-attachments/assets/610795aa-5b3f-45f9-9d9b-d1b4d7c816b1" />
+
+A Figura XX apresenta o monitoramento do Serviço Web, responsável por hospedar e disponibilizar aplicações corporativas por meio de um servidor dedicado. Esse serviço tem como principal função garantir o acesso estável, rápido e seguro aos sistemas web da organização, sendo essencial para o funcionamento contínuo das aplicações. O monitoramento foi realizado utilizando o Zabbix Agent, com base em três indicadores principais: Disk Space Used, Response Time e Falhas, que permitem acompanhar, respectivamente, o uso de armazenamento, o tempo médio de resposta da aplicação e a ocorrência de erros no serviço.
+
+O primeiro gráfico da Figura XX (Web Server – Disk Space Used) representa o indicador de uso de espaço em disco do servidor web. Observa-se a mensagem “No data”, indicando que não houve consumo significativo de armazenamento durante o período de monitoramento, ou que o valor permaneceu dentro de níveis estáveis e irrelevantes para exibição gráfica. Esse resultado sugere que o servidor apresenta baixa demanda de escrita e armazenamento, o que é comum em ambientes voltados apenas à entrega de páginas e serviços web, onde o processamento é predominantemente de leitura e resposta a requisições.
+Mesmo assim, o acompanhamento contínuo desse parâmetro é fundamental, pois o espaço em disco é um recurso crítico: sua saturação pode comprometer o funcionamento do sistema, a gravação de logs e, em casos mais extremos, causar interrupções nos serviços hospedados.
+
+O segundo gráfico (Servidor Web – Response time for step "HomePage" of scenario "CredValeDoce") apresenta o tempo de resposta da aplicação monitorada. Esse parâmetro mede o desempenho da página inicial (“HomePage”) pertencente ao cenário de teste “CredValeDoce”. Os valores observados variam entre 1,3 ms e 2,83 ms, com média de 2,01 ms ao longo do período analisado (entre 18h30 e 19h20). Esses resultados demonstram excelente desempenho e estabilidade, indicando que o servidor está processando as requisições de forma eficiente, sem lentidão ou picos de resposta anormais. A constância da linha verde no gráfico reforça a eficiência e a regularidade do serviço web durante o monitoramento.
+
+Por fim, o terceiro gráfico (Servidor Web – Falhas) mostra o número de erros ou falhas detectadas nas requisições realizadas pelo mesmo cenário de teste. O gráfico mantém-se constantemente na linha zero, indicando que nenhuma falha foi registrada durante o intervalo de observação. Isso evidencia alta disponibilidade e confiabilidade do serviço, sem ocorrências de indisponibilidade, erros HTTP ou falhas de comunicação.
+
+Com base na análise dos três indicadores apresentados na Figura XX, conclui-se que o Serviço Web encontra-se em excelente estado operacional, apresentando:
+
+- Desempenho estável e eficiente, com tempo médio de resposta de aproximadamente 2 ms;
+
+- Ausência total de falhas, demonstrando confiabilidade e disponibilidade do ambiente;
+
+- Necessidade de ajuste na coleta de dados de disco, para garantir o acompanhamento completo dos recursos do servidor.
+
+Em síntese, o ambiente web monitorado mostra-se saudável e com ampla margem de desempenho, sendo recomendado apenas o restabelecimento do monitoramento do espaço em disco para assegurar a observabilidade integral dos recursos críticos do sistema.
 
 ##### DNS
 <img width="1716" height="280" alt="image" src="https://github.com/user-attachments/assets/cff34d1a-3be3-46a8-bdb6-5c28d2025a63" />
