@@ -9,7 +9,7 @@
 O monitoramento e a gerência de ambientes de rede são componentes fundamentais para garantir o desempenho, a disponibilidade e a segurança de sistemas de rede, por isso foram feitos os testes para o serviço AD (Active Directory) da CREDIVALE DOCE. Esse serviço está localizado em um ambiente virtual local, possibilitando integrar ferramentas de monitoramento, como foi utilizado no caso o Zabbix Appliance, com o serviço de diretório, AD, para obter uma visão centralizada e eficiente da infraestrutura do serviço.
 O ambiente é composto por duas máquinas virtuais principais, o Zabbix Appliance, responsável pelo monitoramento e coleta de métricas dos dispositivos, servidores e serviços da rede. Ele é uma solução pronta para uso que já vem com o sistema operacional e o Zabbix Server pré-instalados hospedado no VirtualBox. E o Servidor AD (Active Directory) no Windows Server, responsável pelo gerenciamento de usuários, autenticação, políticas de grupo e demais funções de diretório hospedado no VirtualBox.
 
-##3.1.3 Monitoramento da Infraestrutura
+### 3.1.3 Monitoramento da Infraestrutura
 
 O Zabbix utiliza agentes instalados nos hosts Windows para coletar dados detalhados, como disponibilidade de serviços, utilização de recursos e status de processos do sistema. Alertas e triggers são configurados para notificar administradores em caso de falhas ou degradação de desempenho.
 Dessa forma, os itens de monitoramento mais importantes para serem considerados quanto ao AD Server são o uso de memória RAM, o espaço de armazenamento e o consumo de CPU.
@@ -32,7 +32,7 @@ Nesse gráfico, o disco C:, apresenta um bom desempenho sem sinais de que há so
 
 <img width="1157" height="345" alt="Captura de tela 2025-11-08 175222" src="https://github.com/user-attachments/assets/336b45dd-bf04-4b15-b137-df3a95b18456" />
 
-##3.1.4 Considerações Finais
+### 3.1.4 Considerações Finais
 A combinação do Zabbix Appliance com um servidor AD em um ambiente virtual local cria uma solução robusta de monitoramento e administração de rede. Essa arquitetura permite que os administradores mantenham total controle sobre os recursos, sem depender de serviços externos, e ainda aproveitem a flexibilidade de um ambiente virtualizado.
 Ao monitorar continuamente o Active Directory e os demais componentes da infraestrutura, a equipe de TI pode agir proativamente, prevenindo falhas, otimizando o desempenho e garantindo a disponibilidade dos serviços essenciais da rede corporativa.
 
