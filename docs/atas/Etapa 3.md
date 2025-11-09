@@ -24,7 +24,8 @@ Após a verificação de que o monitoramento local estava operacional, iniciamos
 
 Em seguida, realizamos testes de leitura e escrita de arquivos entre as máquinas, Matriz e Filiais, validando a comunicação e confirmando o correto funcionamento do monitoramento. Por fim, fiquei encarregado de documentar o processo de configuração e monitoração do serviço NFS, incluindo descrever os resultados obtidos nos gráficos gerados pelo Zabbix após a execução dos testes de desempenho e disponibilidade.
 
-- **Lucas** → 
+- **Lucas** → Nesta etapa, foi configurada a máquina virtual do Serviço Web para estabelecer comunicação com o servidor Zabbix, responsável pelo monitoramento centralizado do ambiente. Foi criado um ambiente de teste local para validar os parâmetros de coleta e, em seguida, a máquina foi integrada ao servidor principal, permitindo o acompanhamento de métricas como tempo de resposta, uso de disco e estabilidade do serviço.
+
 - **Yan** → 
 
 - **Victor** →  Nesta etapa, configurei a maquina virtual Postgres para que pudesse haver a comunicação com a maquina virtual Zabbix que estava realizando o processo de monitoramento de todas as maquinas virtuais da sede matrix. Para realizar um teste inicial, criei uma maquina local utilizando o Zabbix e preparei para que posteriomente pudesse ser implementado ao servidor Zabbix final. Auxiliei o Carlos com a configuração do servidor Zabbix com relação a configuração do Zabbix para realizar o monitoramento do banco de dados e documentei o processo de monitoamento do serviço postgeSQL, incluindo a descrição de todos os graicos que foram gerados pelo Zabbix após os testes de desempenho e processamento no banco de dados.
