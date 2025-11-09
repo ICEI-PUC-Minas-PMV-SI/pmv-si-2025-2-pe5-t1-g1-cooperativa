@@ -119,22 +119,21 @@ Esta é uma situação ideal, indicando que há uma grande margem para crescimen
 
 A Figura XX apresenta o monitoramento do Serviço Web, responsável por hospedar e disponibilizar aplicações corporativas por meio de um servidor dedicado. Esse serviço tem como principal função garantir o acesso estável, rápido e seguro aos sistemas web da organização, sendo essencial para o funcionamento contínuo das aplicações. O monitoramento foi realizado utilizando o Zabbix Agent, com base em três indicadores principais: Disk Space Used, Response Time e Falhas, que permitem acompanhar, respectivamente, o uso de armazenamento, o tempo médio de resposta da aplicação e a ocorrência de erros no serviço.
 
-O primeiro gráfico da Figura XX (Web Server – Disk Space Used) representa o indicador de uso de espaço em disco do servidor web. Observa-se a mensagem “No data”, indicando que não houve consumo significativo de armazenamento durante o período de monitoramento, ou que o valor permaneceu dentro de níveis estáveis e irrelevantes para exibição gráfica. Esse resultado sugere que o servidor apresenta baixa demanda de escrita e armazenamento, o que é comum em ambientes voltados apenas à entrega de páginas e serviços web, onde o processamento é predominantemente de leitura e resposta a requisições.
-Mesmo assim, o acompanhamento contínuo desse parâmetro é fundamental, pois o espaço em disco é um recurso crítico: sua saturação pode comprometer o funcionamento do sistema, a gravação de logs e, em casos mais extremos, causar interrupções nos serviços hospedados.
+O primeiro gráfico da Figura XX (Web Server – Disk Space Used) indica que 18,35% do espaço total em disco está sendo utilizado no servidor. Esse valor representa uma baixa taxa de ocupação, o que demonstra que há capacidade de armazenamento suficiente para o funcionamento do serviço e para futuras expansões. O monitoramento desse parâmetro é essencial, pois garante que o ambiente continue operando com segurança, evitando riscos de indisponibilidade causados por saturação do disco ou falhas na gravação de arquivos temporários e logs.
 
-O segundo gráfico (Servidor Web – Response time for step "HomePage" of scenario "CredValeDoce") apresenta o tempo de resposta da aplicação monitorada. Esse parâmetro mede o desempenho da página inicial (“HomePage”) pertencente ao cenário de teste “CredValeDoce”. Os valores observados variam entre 1,3 ms e 2,83 ms, com média de 2,01 ms ao longo do período analisado (entre 18h30 e 19h20). Esses resultados demonstram excelente desempenho e estabilidade, indicando que o servidor está processando as requisições de forma eficiente, sem lentidão ou picos de resposta anormais. A constância da linha verde no gráfico reforça a eficiência e a regularidade do serviço web durante o monitoramento.
+O segundo gráfico (Servidor Web – Response time for step "HomePage" of scenario "CredValeDoce") apresenta o tempo de resposta da aplicação web durante o período de monitoramento. Os valores observados variam entre 1,3 ms e 2,83 ms, com média de 2,01 ms, indicando excelente desempenho e estabilidade. A constância da linha verde demonstra que o servidor respondeu de forma rápida e uniforme às requisições simuladas, sem picos de lentidão, refletindo um ambiente otimizado e com boa capacidade de processamento.
 
-Por fim, o terceiro gráfico (Servidor Web – Falhas) mostra o número de erros ou falhas detectadas nas requisições realizadas pelo mesmo cenário de teste. O gráfico mantém-se constantemente na linha zero, indicando que nenhuma falha foi registrada durante o intervalo de observação. Isso evidencia alta disponibilidade e confiabilidade do serviço, sem ocorrências de indisponibilidade, erros HTTP ou falhas de comunicação.
+Por fim, o terceiro gráfico (Servidor Web – Falhas) exibe a ocorrência de erros no cenário “CredValeDoce”. Nota-se um pequeno registro de falha pontual por volta das 11h13, que rapidamente foi normalizada, não havendo reincidências após esse horário. A baixa frequência e rápida recuperação indicam que o evento foi isolado e sem impacto significativo sobre a disponibilidade do serviço.
 
 Com base na análise dos três indicadores apresentados na Figura XX, conclui-se que o Serviço Web encontra-se em excelente estado operacional, apresentando:
 
-- Desempenho estável e eficiente, com tempo médio de resposta de aproximadamente 2 ms;
+- Desempenho estável e eficiente, com tempo médio de resposta de aproximadamente 2 ms, demonstrando agilidade no processamento das requisições;
 
-- Ausência total de falhas, demonstrando confiabilidade e disponibilidade do ambiente;
+- Ocupação de disco de apenas 18,35%, indicando ampla capacidade disponível para o crescimento e manutenção das operações;
 
-- Necessidade de ajuste na coleta de dados de disco, para garantir o acompanhamento completo dos recursos do servidor.
+- Apenas uma falha pontual registrada, rapidamente normalizada, sem impacto perceptível na disponibilidade ou estabilidade do serviço.
 
-Em síntese, o ambiente web monitorado mostra-se saudável e com ampla margem de desempenho, sendo recomendado apenas o restabelecimento do monitoramento do espaço em disco para assegurar a observabilidade integral dos recursos críticos do sistema.
+Em síntese, o ambiente web monitorado apresenta condições ideais de operação, com bom desempenho, baixo consumo de recursos e alta confiabilidade. Recomenda-se apenas a continuidade do monitoramento periódico, garantindo a detecção precoce de eventuais variações de desempenho e a manutenção da estabilidade observada.
 
 ##### DNS
 
