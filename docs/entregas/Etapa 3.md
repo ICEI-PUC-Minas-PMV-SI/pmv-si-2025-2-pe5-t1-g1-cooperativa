@@ -9,9 +9,9 @@
 O monitoramento e a gerência de ambientes de rede são componentes fundamentais para garantir o desempenho, a disponibilidade e a segurança de sistemas de rede, por isso foram feitos os testes para o serviço AD (Active Directory) da CREDIVALE DOCE. Esse serviço está localizado em um ambiente virtual local, possibilitando integrar ferramentas de monitoramento, como foi utilizado no caso o Zabbix Appliance, com o serviço de diretório, AD, para obter uma visão centralizada e eficiente da infraestrutura do serviço.
 O ambiente é composto por duas máquinas virtuais principais, o Zabbix Appliance, responsável pelo monitoramento e coleta de métricas dos dispositivos, servidores e serviços da rede. Ele é uma solução pronta para uso que já vem com o sistema operacional e o Zabbix Server pré-instalados hospedado no VirtualBox. E o Servidor AD (Active Directory) no Windows Server, responsável pelo gerenciamento de usuários, autenticação, políticas de grupo e demais funções de diretório hospedado no VirtualBox.
 
-### 3.1.3 Monitoramento da Infraestrutura
+### 3.1.2.1 Monitoramento da Infraestrutura
 
-O Zabbix utiliza agentes instalados nos hosts Windows para coletar dados detalhados, como disponibilidade de serviços, utilização de recursos e status de processos do sistema. Alertas e triggers são configurados para notificar administradores em caso de falhas ou degradação de desempenho.
+O Zabbix utiliza um agente instalado no host Windows para coletar dados detalhados, como disponibilidade de serviços, utilização de recursos e status de processos do sistema. Alertas e triggers são configurados para notificar administradores em caso de falhas ou degradação de desempenho.
 Dessa forma, os itens de monitoramento mais importantes para serem considerados quanto ao AD Server são o uso de memória RAM, o espaço de armazenamento e o consumo de CPU.
 No gráfico de utilização de memória é possível perceber que a utilização da mesma não chegou em pontos críticos e se manteve estável, mostrando a estabilidade no serviço. Já no gráfico de utilização de CPU houveram picos e quedas se mantendo mais estável para o final do gráfico, esses picos podem sinalizar uma sobrecarga devido a inicialização do Windows que depois se estabiliza à medida que o tempo passa.
 
@@ -25,13 +25,12 @@ O gráfico de tráfego de rede mostrou que não houveram perdas de pacotes ou re
 
 
 Os gráficos de uso de espaço apesar de demonstrar que o uso está no máximo, foi acrescentado uma memória extra para o melhor funcionamento da aplicação.
-<img width="1170" height="310" alt="Captura de tela 2025-11-08 175326" src="https://github.com/user-attachments/assets/6fa55489-b51c-4669-840e-a4ad100b22f2" />
-
-<img width="1169" height="305" alt="Captura de tela 2025-11-08 175346" src="https://github.com/user-attachments/assets/d38cfcef-bb2d-4a3b-8e90-b67f00beeaf8" />
-
+<img width="407" height="310" alt="511869112-6fa55489-b51c-4669-840e-a4ad100b22f2" src="https://github.com/user-attachments/assets/fc2e1023-4dd8-4906-bd56-abe0bc1f188b" />
+<img width="418" height="305" alt="511869126-d38cfcef-bb2d-4a3b-8e90-b67f00beeaf8" src="https://github.com/user-attachments/assets/4f721579-8cb1-4dc9-85fa-33cdff8e81c4" />
 
 
-### 3.1.4 Considerações Finais
+
+### 3.1.2.1 Considerações Finais
 A combinação do Zabbix Appliance com um servidor AD em um ambiente virtual local cria uma solução robusta de monitoramento e administração de rede. Essa arquitetura permite que os administradores mantenham total controle sobre os recursos, sem depender de serviços externos, e ainda aproveitem a flexibilidade de um ambiente virtualizado.
 Ao monitorar continuamente o Active Directory e os demais componentes da infraestrutura, a equipe de TI pode agir proativamente, prevenindo falhas, otimizando o desempenho e garantindo a disponibilidade dos serviços essenciais da rede corporativa.
 
