@@ -1,12 +1,18 @@
-# 3 GERêNCIA E MONITORAÇÃO DE AMBIENTES DE REDE
+# 3 GERÊNCIA E MONITORAÇÃO DE AMBIENTES DE REDE
 
 # 3.1 Monitoramento em Máquinas Virtuais Locais 
 
 ## 3.1.1 Monitoramento Servidor DHCP (Dynamic Host Configuration Protocol) 
 
+## 3.1.2 Monitoramento Servidor AD (Active Directory)
 
-## 3.1.2 Monitoramento Servidor AD (Active Directory) 
+# 3.2 Monitoramento em Máquinas na AWS ( Amazon Web Services ) 
 
+Para o ambiente em nuvem da AWS foi criada uma nova instância na EC2 para instalar e hospedar o servidor Zabbix que monitora todas as outras máquinas dos outros serviços. No frontend foi configurado um dashboard para unificar todos os gráficos em um só local, foi definido que os dados relevantes para todos os serviços seriam colocados cada um em um gráfico apenas, sendo eles a disponibilidade do agente, o uso de memória RAM e o uso de CPU.
+
+Na Figura XX é possível ver a disponibilidade do agente em cada máquina, o valor retornado para o monitor Zabbix é do tipo 0 ou 1, sendo 0 o agente não está respondendo e 1 significando que o cliente na máquina monitorada está funcional. Com isso foi configurado para que ao receber o valor 0 faça com que a cor de fundo fique vermelha e com o valor 1 fique verde, fazendo assim que fique intuitivo e de rápida assimilação a informação sobre a disponibilidade do monitoramento.
+
+Para o uso da memória RAM e CPU foi escolhido mostrar os dados em um gráfico de linha em que o uso em porcentagem é representado no eixo y, e o eixo x representa o tempo. Podemos visualizar nas Figuras XX e XX que para todas as máquinas o uso de RAM e CPU foram suficientemente constantes no período monitorado, indicando que a carga sobre as máquinas não estavam sendo preocupantes. Também é possível visualizar no gráfico uma linha superior de gatilho para valores superiores a 90%, com ele é possível configurar alarmes de diversas maneiras para que ao atingir um valor tão alto o responsável tenha conhecimento do ocorrido e possa buscar outros dados para interpretar a fim de diagnosticar o problema e tomar ações para solucioná-lo. 
 
 #### Imagens 
 
@@ -23,6 +29,14 @@
 
 ##### FTP
 <img width="1723" height="280" alt="image" src="https://github.com/user-attachments/assets/a2171516-2622-477f-b080-678113a18441" />
+
+## 3.2.1 Monitoramento Serviço FTP 
+
+Pelo servidor de FTP ser responsável por transferir e armazenar os arquivos foram selecionados o espaço utilizado do disco e o tráfego de rede para serem monitorados por julgar como os dados mais relevantes para o serviço.
+
+No gráfico mostrado pela Figura XX podemos ver que o armazenamento está apenas 38,84% utilizado, esse valor é aceitável pois ainda está longe de atingir o limite do disco. Este gráfico é importante para conseguir identificar rapidamente a necessidade de rever políticas de armazenamento, ou mais comumente, a necessidade de expansão na capacidade do disco da máquina.
+
+Já na Figura XX podemos visualizar o tráfego de rede de entrada e na Figura XX o tráfego de saída da máquina, eles indicam principalmente quando estão acontecendo transferências de arquivos, por meio desses dados pode-se tirar informações como horário em que a máquina é mais utilizada, valor que ela necessidade de banda para funcionar sem ter problemas, até também momentos de anormalidades que podem ser referentes a mau uso, ou algum ataque, por exemplo. No gráfico de entrada, Figura XX, o único pico, que chega a um uso de 8 Mpbs, representa um momento em que foi enviado um arquivo maior para a máquina que está hospedando o serviço, já no gráfico de saída, Figura XX, os picos apresentados podem significar os momentos em que arquivos foram transferidos para uma ou mais máquinas clientes.
 
 ##### NFS 
 <img width="1719" height="282" alt="image" src="https://github.com/user-attachments/assets/918433f7-7e3f-40aa-86c0-06100a7afe4f" />
