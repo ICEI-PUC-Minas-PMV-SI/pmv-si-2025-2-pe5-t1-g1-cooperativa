@@ -4,6 +4,8 @@
 
 ## 3.1.1 Monitoramento Servidor DHCP (Dynamic Host Configuration Protocol) 
 
+O Zabbix foi utilizado para monitorar o funcionamento do DHCP (Dynamic Host Configuration Protocol), um protocolo que automatiza a atribuição de endereços IP e outras configurações de rede aos dispositivos conectados. Essa automação evita conflitos de endereçamento e facilita o gerenciamento da infraestrutura. No projeto, o Zabbix Appliance foi implementado junto a uma máquina Linux Ubuntu Server configurada como servidor DHCP, possibilitando acompanhar em tempo real o desempenho do serviço e garantir uma distribuição eficiente e estável dos endereços na rede.
+
 ## 3.1.2 Monitoramento Servidor AD (Active Directory)
 
 O monitoramento e a gerência de ambientes de rede são componentes fundamentais para garantir o desempenho, a disponibilidade e a segurança de sistemas de rede, por isso foram feitos os testes para o serviço AD (Active Directory) da CREDIVALE DOCE. Esse serviço está localizado em um ambiente virtual local, possibilitando integrar ferramentas de monitoramento, como foi utilizado no caso o Zabbix Appliance, com o serviço de diretório, AD, para obter uma visão centralizada e eficiente da infraestrutura do serviço.
