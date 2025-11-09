@@ -26,7 +26,11 @@ Em seguida, realizamos testes de leitura e escrita de arquivos entre as máquina
 
 - **Lucas** → Nesta etapa, foi configurada a máquina virtual do Serviço Web para estabelecer comunicação com o servidor Zabbix, responsável pelo monitoramento centralizado do ambiente. Foi criado um ambiente de teste local para validar os parâmetros de coleta e, em seguida, a máquina foi integrada ao servidor principal, permitindo o acompanhamento de métricas como tempo de resposta, uso de disco e estabilidade do serviço.
 
-- **Yan** → 
+- **Yan** → Nesta etapa, foi configurado um servidor DNS em uma instância EC2 na AWS e integrado ao Zabbix para monitoramento. O objetivo foi acompanhar o desempenho da resolução de nomes e a comunicação de rede da instância.
+
+O gráfico obtido mostra três métricas principais: Query Time, Network Inbound e Network Outbound. O tempo de consulta (Query Time) manteve-se baixo, indicando respostas rápidas do servidor. Já os gráficos de entrada e saída de rede mostraram variações esperadas, representando o tráfego de consultas e respostas DNS.
+
+Com isso, foi possível verificar que o servidor DNS apresentou bom desempenho e estabilidade, respondendo adequadamente às solicitações e garantindo a conectividade e disponibilidade do serviço hospedado na AWS.
 
 - **Victor** →  Nesta etapa, configurei a maquina virtual Postgres para que pudesse haver a comunicação com a maquina virtual Zabbix que estava realizando o processo de monitoramento de todas as maquinas virtuais da sede matrix. Para realizar um teste inicial, criei uma maquina local utilizando o Zabbix e preparei para que posteriomente pudesse ser implementado ao servidor Zabbix final. Auxiliei o Carlos com a configuração do servidor Zabbix com relação a configuração do Zabbix para realizar o monitoramento do banco de dados e documentei o processo de monitoamento do serviço postgeSQL, incluindo a descrição de todos os graicos que foram gerados pelo Zabbix após os testes de desempenho e processamento no banco de dados.
   
