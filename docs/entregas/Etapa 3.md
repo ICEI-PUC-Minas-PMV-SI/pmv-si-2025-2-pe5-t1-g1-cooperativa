@@ -2,6 +2,8 @@
 
 # 3.1 Monitoramento em Máquinas Virtuais Locais 
 
+As máquinas virtuais locais foram utilizadas para criar um ambiente controlado, ideal para testes e simulações de rede. Nelas, o Zabbix teve um papel essencial, sendo responsável por monitorar o desempenho e o consumo de recursos de cada máquina. Por meio dessa ferramenta, foi possível observar o funcionamento dos serviços em tempo real, detectar possíveis falhas e manter a estabilidade do sistema. O uso do Zabbix é importante porque garante maior eficiência, confiabilidade e controle sobre os ambientes virtuais, tornando o processo de gerenciamento e análise muito mais preciso.
+
 ## 3.1.1 Monitoramento Servidor DHCP (Dynamic Host Configuration Protocol) 
 
 O Zabbix foi utilizado para monitorar o funcionamento do DHCP (Dynamic Host Configuration Protocol), um protocolo que automatiza a atribuição de endereços IP e outras configurações de rede aos dispositivos conectados. Essa automação evita conflitos de endereçamento e facilita o gerenciamento da infraestrutura. No projeto, o Zabbix Appliance foi implementado junto a uma máquina Linux Ubuntu Server configurada como servidor DHCP, possibilitando acompanhar em tempo real o desempenho do serviço e garantir uma distribuição eficiente e estável dos endereços na rede.
