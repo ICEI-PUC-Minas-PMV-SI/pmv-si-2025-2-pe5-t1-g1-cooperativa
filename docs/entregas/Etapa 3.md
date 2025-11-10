@@ -10,9 +10,20 @@ O Zabbix foi utilizado para monitorar o funcionamento do DHCP (Dynamic Host Conf
 
 ### 3.1.1.1 Monitoramento da Infraestrutura
 
-<img width="1728" height="305" alt="Captura de tela 2025-11-09 221228" src="https://github.com/user-attachments/assets/b042ab9f-f3ec-4935-8dd4-582e67c40a0b" />
+No monitoramento de memória RAM é possível perceber que ele é baixo e estável, sem variações significativas, sem risco de esgotamento da memória e está suficiente para sua carga atual. 
+<img width="1710" height="380" alt="Captura de tela 2025-11-09 222745" src="https://github.com/user-attachments/assets/d860b0d3-6a19-4aa1-8f89-8eccdf7aef80" />
+
+Já o de CPU está estável variando entre 16% e 21%, sem picos significativos, sem sinais de gargalos ou sobrecarga.
+<img width="1728" height="338" alt="Captura de tela 2025-11-09 222816" src="https://github.com/user-attachments/assets/629383c2-a0db-4a4b-99cf-5d35b4c2ddf3" />
+
+O gráfico de interface de rede indica que está funcionando normalmente, com baixa utilização e sem erros, o pico no inicio do gráfico provavelmente foi causado pela inicialização do servidor.
+
+<img width="1710" height="380" alt="Captura de tela 2025-11-09 222745" src="https://github.com/user-attachments/assets/1dd8b18f-934e-4480-9dee-4e9f56843df8" />
 
 Neste gráfico de memória podemos observar que o servidor DHCP ainda tem bastante espaço disponível, cerca de 70% do espaço total, e o uso atual é 25%, mostrando que seu esgotamento não é algo iminente e não há necessidade de limpeza ou expansão.
+
+<img width="1728" height="305" alt="Captura de tela 2025-11-09 221228" src="https://github.com/user-attachments/assets/b042ab9f-f3ec-4935-8dd4-582e67c40a0b" />
+
 
 
 ## 3.1.2 Monitoramento Servidor AD (Active Directory)
@@ -24,7 +35,7 @@ O ambiente é composto por duas máquinas virtuais principais, o Zabbix Applianc
 
 O Zabbix utiliza um agente instalado no host Windows para coletar dados detalhados, como disponibilidade de serviços, utilização de recursos e status de processos do sistema. Alertas e triggers são configurados para notificar administradores em caso de falhas ou degradação de desempenho.
 Dessa forma, os itens de monitoramento mais importantes para serem considerados quanto ao AD Server são o uso de memória RAM, o espaço de armazenamento e o consumo de CPU.
-No gráfico de utilização de memória é possível perceber que a utilização da mesma não chegou em pontos críticos e se manteve estável, mostrando a estabilidade no serviço. Já no gráfico de utilização de CPU houveram picos e quedas se mantendo mais estável para o final do gráfico, esses picos podem sinalizar uma sobrecarga devido a inicialização do Windows que depois se estabiliza à medida que o tempo passa.
+No gráfico de utilização de memória RAM é possível perceber que a utilização da mesma não chegou em pontos críticos e se manteve estável, mostrando a estabilidade no serviço. Já no gráfico de utilização de CPU houveram picos e quedas se mantendo mais estável para o final do gráfico, esses picos podem sinalizar uma sobrecarga devido a inicialização do Windows que depois se estabiliza à medida que o tempo passa.
 
 <img width="1167" height="337" alt="Captura de tela 2025-11-08 175439" src="https://github.com/user-attachments/assets/7be53f34-9d07-4c96-a17d-4823336ae255" />
 <img width="1181" height="343" alt="Captura de tela 2025-11-08 175428" src="https://github.com/user-attachments/assets/1e6680db-4859-48b0-962b-c47c0ff6d889" />
