@@ -11,7 +11,8 @@ O Zabbix foi utilizado para monitorar o funcionamento do DHCP (Dynamic Host Conf
 ### 3.1.1.1 Monitoramento da Infraestrutura
 
 No monitoramento de memória RAM é possível perceber que ele é baixo e estável, sem variações significativas, sem risco de esgotamento da memória e está suficiente para sua carga atual. 
-<img width="1710" height="380" alt="Captura de tela 2025-11-09 222745" src="https://github.com/user-attachments/assets/d860b0d3-6a19-4aa1-8f89-8eccdf7aef80" />
+<img width="1733" height="332" alt="Captura de tela 2025-11-09 222831" src="https://github.com/user-attachments/assets/56d6f731-beba-4cdb-9b0d-d37239045e57" />
+
 
 Já o de CPU está estável variando entre 16% e 21%, sem picos significativos, sem sinais de gargalos ou sobrecarga.
 <img width="1728" height="338" alt="Captura de tela 2025-11-09 222816" src="https://github.com/user-attachments/assets/629383c2-a0db-4a4b-99cf-5d35b4c2ddf3" />
