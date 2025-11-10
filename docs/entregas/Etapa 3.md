@@ -23,9 +23,7 @@ O gráfico de interface de rede indica que está funcionando normalmente, com ba
 
 Neste gráfico de memória podemos observar que o servidor DHCP ainda tem bastante espaço disponível, cerca de 70% do espaço total, e o uso atual é 25%, mostrando que seu esgotamento não é algo iminente e não há necessidade de limpeza ou expansão.
 
-<img width="1728" height="305" alt="Captura de tela 2025-11-09 221228" src="https://github.com/user-attachments/assets/b042ab9f-f3ec-4935-8dd4-582e67c40a0b" />
-
-
+<img width="470" height="305" alt="DHCPG4" src="https://github.com/user-attachments/assets/b46b5418-36fc-459b-9938-24ab8945f49f" />
 
 ## 3.1.2 Monitoramento Servidor AD (Active Directory)
 
