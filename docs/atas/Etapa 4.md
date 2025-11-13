@@ -3,6 +3,7 @@
 
 ### 1.1 Fase 1 – Divisão de tarefas inicial
 Definir grupos para as 3 atividades nessa primeira parte. Sendo elas: O Backend, a cartilha e Politica de segurança da Informação.
+
 Mostra parcial para o professor:
 
 
