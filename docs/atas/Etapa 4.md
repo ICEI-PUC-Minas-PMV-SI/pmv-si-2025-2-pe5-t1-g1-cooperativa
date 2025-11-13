@@ -1,3 +1,10 @@
+
+1. Fases do Trabalho
+1.1 Fase 1 – Divisão de tarefas inicial
+Definir grupos para as 3 atividades nessa primeira parte. Sendo elas: O Backend, a cartilha e Politica de segurança da Informação.
+Mostra parcial para o professor:
+
+
 # Cronograma de Atividades – 4ª Etapa
 
 | Equipe | Carga Horária | Ações/Atividades | Data |
@@ -5,6 +12,8 @@
 | Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 1:20 h | Divisão das atividades. | 13/11 |
 
 
+
+Planilha revisada de recursos de rede.
 
 Atividades Individuais – 4ª Etapa
 
