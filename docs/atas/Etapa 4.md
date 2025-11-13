@@ -14,9 +14,8 @@ Mostra parcial para o professor:
 
 
 
-Planilha revisada de recursos de rede.
 
-Atividades Individuais – 4ª Etapa
+# Atividades Individuais – 4ª Etapa
 
 Carlos →
 
