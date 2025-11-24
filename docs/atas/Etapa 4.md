@@ -12,8 +12,8 @@ Mostra parcial para o professor.
 | Equipe | Carga Horária | Ações/Atividades | Data |
 |--------|---------------|-----------------|------|
 | Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 1:20 h | Divisão das atividades. | 13/11 |
-
-
+| Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 0:40 h | Reestruturação de cronogramas e atualizações. | 17/11 |
+| Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 4:30 h | Discussão sobre o PSI e atualizações no mesmo, definições de prazos, organização dos tópicos da cartilha, discussão da criação do evento Cred Vale Hunting Week e atualizações sobre o back-end. | 19/11 |
 
 
 # Atividades Individuais – 4ª Etapa
