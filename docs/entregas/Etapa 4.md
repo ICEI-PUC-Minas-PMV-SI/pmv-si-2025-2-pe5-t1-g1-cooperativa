@@ -10,6 +10,10 @@ Ao estabelecer diretrizes claras, a PSI fortalece a transparência, aumenta a ef
 
 # 4.2 Cartilha de acesso seguro Cred Vale Doce
 
+A Cartilha de Acesso Seguro da Cred Vale Doce foi desenvolvida com o objetivo de promover um ambiente mais protegido para todos. O material é destinado tanto aos cooperados quanto aos colaboradores e ao público em geral interessado no tema.
+A Cred Vale Doce busca garantir um sistema seguro e de fácil compreensão para todos os usuários, incentivando uma postura mais proativa e consciente sobre a importância do papel de cada um na proteção das informações. Dessa forma, a cartilha contribui para fortalecer a segurança e ampliar a cultura de responsabilidade no uso dos sistemas.
+
+
 # 4.3 Evento Cred Vale Hunting Week 
 
 A Cred Vale Hunting Week é um evento semestral promovido pela Cred Vale Doce com o objetivo de criar um ambiente controlado, educativo e gamificado que mantenha os colaboradores, principalmente os da área de TI, atualizados e engajados nas questões de segurança da informação.Cada edição tem duração de cinco dias e conta com um sistema de pontuação, ambientes controlados e a produção de materiais e relatórios técnicos. Esses conteúdos contribuem para aprimorar a segurança da cooperativa, atualizar planos de ação, avaliar impactos e definir melhorias nos processos internos. Dessa forma, o evento contribui para a redução de riscos de segurança, aumenta o engajamento das equipes, fortalece a cultura de reporte responsável e promove maior integração entre os membros do time o que resulta em sistemas mais estáveis, confiáveis e seguros.
