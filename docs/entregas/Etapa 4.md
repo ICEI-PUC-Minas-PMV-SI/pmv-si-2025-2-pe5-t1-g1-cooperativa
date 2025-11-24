@@ -10,7 +10,7 @@ Ao estabelecer diretrizes claras, a PSI fortalece a transparência, aumenta a ef
 
 # 4.2 Cartilha de acesso seguro Cred Vale Doce
 
-A Cartilha de Acesso Seguro da Cred Vale Doce foi desenvolvida com o objetivo de promover um ambiente mais protegido para todos. O material é destinado tanto aos cooperados quanto aos colaboradores e ao público em geral interessado no tema.
+A Cartilha de Acesso Seguro da Cred Vale Doce, que será impressa em formto de livreto, foi desenvolvida com o objetivo de promover um ambiente mais protegido para todos. O material é destinado tanto aos cooperados quanto aos colaboradores e ao público em geral interessado no tema.
 A Cred Vale Doce busca garantir um sistema seguro e de fácil compreensão para todos os usuários, incentivando uma postura mais proativa e consciente sobre a importância do papel de cada um na proteção das informações. Dessa forma, a cartilha contribui para fortalecer a segurança e ampliar a cultura de responsabilidade no uso dos sistemas.
 
 
