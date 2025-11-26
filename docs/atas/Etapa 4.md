@@ -22,7 +22,7 @@ Carlos →
 
 Luana →
 
-Odair→ Nesta etapa, auxiliei na elaboração da PSI e na formulação de sugestões para a Cartilha de Segurança.
+Odair→ Nesta etapa, participei da elaboração da PSI e na formulação de sugestões para a Cartilha de Segurança.
 
 Lucas →
 
