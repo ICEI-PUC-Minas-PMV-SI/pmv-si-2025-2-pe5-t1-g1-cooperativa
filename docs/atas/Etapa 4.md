@@ -16,7 +16,7 @@ Mostra parcial para o professor.
 | Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 4:30 h | Discussão sobre o PSI e atualizações no mesmo, definições de prazos, organização dos tópicos da cartilha, discussão da criação do evento Cred Vale Hunting Week e atualizações sobre o back-end. | 19/11 |
 | Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 1:00 h | Atualizações e redistribuição das tarefas que faltam. | 24/11 |
 | Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 1:20 h | Revisão em grupo dos textos. | 26/11 |
-| Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 0:00 h | Reunião para revisão do texto de vulnerabilidades e versão final backend | 27/11 |
+| Carlos Alberto Vieira de Souza; Laura de Freitas Mendes Losque; Luana Horta de Souza; Lucas Araújo Pacheco; Odair Cordeiro Marra; Victor Samuel Costa Pereira; Yan Oyama Moura. | 2:00 h | Reunião para revisão do texto de vulnerabilidades e versão final backend | 27/11 |
 
 # Atividades Individuais – 4ª Etapa
 
