@@ -26,7 +26,7 @@ Luana →
 
 Odair→ Nesta etapa, participei da elaboração da PSI e na formulação de sugestões para a Cartilha de Segurança.
 
-Lucas →
+Lucas → Nesta etapa, desenvolvi o CRUD tanto no front-end quanto no back-end.
 
 Yan → 
 
