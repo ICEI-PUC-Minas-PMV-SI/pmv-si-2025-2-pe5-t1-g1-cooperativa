@@ -45,7 +45,7 @@ Para colocar em prática as normas de segurança e aprimorar o funcionamento int
 
 A base dessa estrutura é o "Sistema de Gestão da Cooperativa", um painel administrativo que une os setores mais importantes da instituição. Como pode ser visto na interface abaixo, o Back-end controla o acesso a partes específicas, permitindo que os usuários com permissão gerenciem de forma simples as Unidades, Funções, Setores e Colaboradores. Essa divisão em partes torna a navegação mais fácil e garante a organização para que cada aspecto da cooperativa seja administrado de maneira separada e organizada.
 
-<img width="2000" height="1294" alt="Sistema de Gestão da Cooperativa - Dashboard" src="https://github.com/user-attachments/assets/c50451c9-8df4-465c-9648-6b232c90c2e0" />
+<img width="2000" height="1294" alt="Sistema de Gestão da Cooperativa - Dashboard" src="https://github.com/user-attachments/assets/eb88411f-64cc-47ef-b308-ce657177e22e" />
 
 Além da visão macro sobre o sistema, o desenvolvimento do back-end teve seu foco na funcionalidade detalhada de cada módulo, implementando operações completas de criação, leitura, atualização e exclusão (CRUD) de dados. Um exemplo prático dessa implementação é o módulo de Filiais, que faz parte do Sistema de Gestão da Cooperativa, foi criado para gerenciar de maneira centralizada todas as unidades físicas da Cred Vale Doce. Esse componente possibilita o registro, a modificação e a organização em nível hierárquico das diversas localidades de atuação da cooperativa, assegurando que as informações se mantenham coerentes em toda a rede. 
 
@@ -53,7 +53,7 @@ O módulo tem como objetivo principal fornecer uma visão unificada da estrutura
 
 A interface também disponibiliza botões de ação intuitivos ("Editar" e "Excluir") e a opção de adicionar novas unidades ("+ Nova Filial"), evidenciando a capacidade do sistema de processar requisições dinâmicas e manter o banco de dados da Cred Vale Doce sempre íntegro e atualizado. 
 
-<img width="2000" height="1294" alt="Gerenciamento de Filiais" src="https://github.com/user-attachments/assets/07ff0178-d146-4e9d-9c7f-395ade3c2c01" />
+<img width="2000" height="1294" alt="Gerenciamento de Filiais" src="https://github.com/user-attachments/assets/90a253a1-14df-4eec-a78b-711eadf3c597" />
 
 Dessa forma, o desenvolvimento da aplicação está funcional, as outras paginas que aparecem como cards na primeira imagem foram criadas, porém possuem a mesma formatação e estruturação igual a da segunda imagem, sendo assim, paginas com funcionalidades parecidas. Cada módulo desenvolvido incorpora princípios de usabilidade, segurança e integridade de dados, trabalhando em conjunto com as políticas de segurança da informação para criar um ambiente gerencial confiável e eficiente.
 
