@@ -22,7 +22,7 @@ Mostra parcial para o professor.
 
 Carlos →
 
-Luana →
+Luana → Nessa etapa, revisei a PSI, ajudei no texto das vulnerabilidades e na confecção do texto da cartilha de segurança, fiz o evento e a cartilha da hunting week e fiz o resumo do trabalho. Fiz também a documentação da PSI, cartilha e evento.
 
 Odair→ Nesta etapa, participei da elaboração da PSI e na formulação de sugestões para a Cartilha de Segurança.
 
