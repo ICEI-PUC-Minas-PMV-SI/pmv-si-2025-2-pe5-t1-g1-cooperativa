@@ -20,7 +20,7 @@ Mostra parcial para o professor.
 
 # Atividades Individuais – 4ª Etapa
 
-Carlos →
+Carlos → Nessa etapa, participei na escrita do texto das vulnerabilidades e nas sugestões da cartilha, também passei o texto e as imagens do .md no github para o artigo e realizei as correções propostas pelo professor no artigo, utilizando o editor TexStudio e compilador MikTex.
 
 Luana → Nessa etapa, revisei a PSI, ajudei no texto das vulnerabilidades e na confecção do texto da cartilha de segurança, fiz o evento e a cartilha da hunting week e fiz o resumo do trabalho. Fiz também a documentação da PSI, cartilha e evento.
 
