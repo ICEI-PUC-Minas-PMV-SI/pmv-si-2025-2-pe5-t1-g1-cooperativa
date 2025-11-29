@@ -18,7 +18,7 @@ Mas apenas a cultura da empresa, os processos de capacitação e comunicação a
 
 Dessa forma, é possível perceber que é imprescindível promover a participação ativa dos colaboradores na construção, revisão e aprimoramento das diretrizes. Garantir que as informações da política de segurança sejam efetivamente seguidas exige uma abordagem multidimensional. Somente por meio da articulação entre cultura organizacional, capacitação contínua, monitoramento rigoroso, comunicação eficaz, mecanismos de incentivo e participação coletiva é possível alcançar níveis elevados de conformidade, protegendo a segurança de todos.
 
-Link para a Política de Segurança da informação (PSI):
+Link para a Política de Segurança da informação (PSI): https://github.com/ICEI-PUC-Minas-PMV-SI/pmv-si-2025-2-pe5-t1-g1-cooperativa/blob/4b9abd27b71b1894cc7aa23db6a8c245d0ddc743/docs/artigos/Pol%C3%ADtica%20de%20Seguran%C3%A7a%20da%20Informa%C3%A7%C3%A3o%20-%20CVD.pdf
 
 # 4.2 Cartilha de acesso seguro Cred Vale Doce
 
