@@ -30,6 +30,6 @@ Lucas → Nesta etapa, desenvolvi o CRUD tanto no front-end quanto no back-end.
 
 Yan → 
 
-Victor → 
+Victor → Nesta etapa, auxiliei o Lucas com o CRUD e fiz a documentação dessa parte do desenvolvimento.
 
 Laura → Nesta etapa fiz o design da Cartilha de Segurança e ajudei nos textos da mesma.
