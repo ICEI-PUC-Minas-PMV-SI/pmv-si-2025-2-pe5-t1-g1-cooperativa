@@ -32,4 +32,4 @@ Yan →
 
 Victor → 
 
-Laura →
+Laura → Nesta etapa fiz o design da Cartilha de Segurança e ajudei nos textos da mesma.
