@@ -39,3 +39,24 @@ A Cred Vale Hunting Week é um evento semestral promovido pela Cred Vale Doce co
 <img width="1414" height="2000" alt="3" src="https://github.com/user-attachments/assets/03d3a196-bc16-429c-98c2-a16735cf04ad" />
 
 
+# 5 Desenvolvimento Web Back-end
+
+Para colocar em prática as normas de segurança e aprimorar o funcionamento interno da Cred Vale Doce, criamos um aplicativo web, com um Back-end bem organizado para assegurar que os dados da empresa sejam gerenciados de forma segura e eficaz. O sistema foi idealizado para reunir toda a administração de dados em um só lugar, funcionando como uma ferramenta essencial para a organização e o controle das atividades da cooperativa.
+
+A base dessa estrutura é o "Sistema de Gestão da Cooperativa", um painel administrativo que une os setores mais importantes da instituição. Como pode ser visto na interface abaixo, o Back-end controla o acesso a partes específicas, permitindo que os usuários com permissão gerenciem de forma simples as Unidades, Funções, Setores e Colaboradores. Essa divisão em partes torna a navegação mais fácil e garante a organização para que cada aspecto da cooperativa seja administrado de maneira separada e organizada.
+
+<img width="2000" height="1294" alt="Sistema de Gestão da Cooperativa - Dashboard" src="https://github.com/user-attachments/assets/c50451c9-8df4-465c-9648-6b232c90c2e0" />
+
+Além da visão macro sobre o sistema, o desenvolvimento do back-end teve seu foco na funcionalidade detalhada de cada módulo, implementando operações completas de criação, leitura, atualização e exclusão (CRUD) de dados. Um exemplo prático dessa implementação é o módulo de Filiais, que faz parte do Sistema de Gestão da Cooperativa, foi criado para gerenciar de maneira centralizada todas as unidades físicas da Cred Vale Doce. Esse componente possibilita o registro, a modificação e a organização em nível hierárquico das diversas localidades de atuação da cooperativa, assegurando que as informações se mantenham coerentes em toda a rede. 
+
+O módulo tem como objetivo principal fornecer uma visão unificada da estrutura física da organização, permitindo o controle detalhado de cada unidade e facilitando a gestão operacional distribuída.  Seu escopo inclui desde a matriz principal até as filiais regionais, criando um mapa organizacional completo da presença territorial da cooperativa. Através deste módulo, a cooperativa implementa mecanismos de controle e padronização que garantem a uniformidade operacional entre todas as unidades, além de fornecer dados essenciais para tomadas de decisão estratégicas sobre expansão e otimização da rede física. O sistema permite ainda a integração com outros módulos, como o de funcionários, facilitando a alocação de recursos humanos de acordo com a localização geográfica.
+
+A interface também disponibiliza botões de ação intuitivos ("Editar" e "Excluir") e a opção de adicionar novas unidades ("+ Nova Filial"), evidenciando a capacidade do sistema de processar requisições dinâmicas e manter o banco de dados da Cred Vale Doce sempre íntegro e atualizado. 
+
+<img width="2000" height="1294" alt="Gerenciamento de Filiais" src="https://github.com/user-attachments/assets/07ff0178-d146-4e9d-9c7f-395ade3c2c01" />
+
+Dessa forma, o desenvolvimento da aplicação está funcional, as outras paginas que aparecem como cards na primeira imagem foram criadas, porém possuem a mesma formatação e estruturação igual a da segunda imagem, sendo assim, paginas com funcionalidades parecidas. Cada módulo desenvolvido incorpora princípios de usabilidade, segurança e integridade de dados, trabalhando em conjunto com as políticas de segurança da informação para criar um ambiente gerencial confiável e eficiente.
+
+Por meio da implementação de sistemas integrados e padronizados é possível garantir a consistência das informações organizacionais, a rastreabilidade das operações e a eficiência na gestão dos recursos, contribuindo para o fortalecimento institucional e para a melhoria contínua dos serviços oferecidos pela cooperativa.
+
+
