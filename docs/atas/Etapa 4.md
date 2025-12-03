@@ -28,7 +28,7 @@ Odair→ Nesta etapa, participei da elaboração da PSI e na formulação de sug
 
 Lucas → Nesta etapa, desenvolvi o CRUD tanto no front-end quanto no back-end.
 
-Yan → 
+Yan → Nesta etapa, desenvolvi os texto e tópicos presentes na Cartilha de Segurança.
 
 Victor → Nesta etapa, auxiliei o Lucas com o CRUD e fiz a documentação dessa parte do desenvolvimento.
 
