@@ -1,6 +1,10 @@
-Conclusão
+# 5 Conclusão
+
 A análise desenvolvida ao longo deste projeto permitiu compreender como a infraestrutura de redes desempenha um papel estratégico para o funcionamento eficiente da Cred Vale Doce. É possível observar que a capacidade de integrar sistemas internos, garantir a segurança dos dados sensíveis dos cooperados e manter a disponibilidade contínua dos serviços depende diretamente de uma arquitetura de rede bem planejada, escalável e resiliente.
+
 Um aspecto fundamental destacado neste trabalho refere-se ao monitoramento contínuo da infraestrutura de rede, que surge como um elemento essencial para antecipar problemas e manter as operações em níveis adequados de desempenho. Ferramentas de monitoramento permitem identificar anomalias, lentidões, quedas e possíveis ameaças em tempo real, possibilitando ações rápidas e preventivas. Assim, o monitoramento eficiente se torna um componente indispensável para a estabilidade dos serviços e para a tomada de decisões da cooperativa.
+
 Da mesma forma, às políticas de segurança da informação também têm seu papel importante. A definição clara de diretrizes, normas e procedimentos de acesso, autenticação, proteção de dados e controle de incidentes é crucial para estabelecer uma cultura organizacional orientada à segurança. Em uma cooperativa de crédito, onde os dados são altamente sensíveis, políticas bem estruturadas contribuem para reduzir riscos operacionais, assegurar a confidencialidade e garantir o cumprimento de requisitos legais e regulatórios.
+
 Dessa forma, conclui-se que o investimento em soluções de rede adequadas, aliado ao monitoramento constante e à implementação de políticas de segurança, são fundamentais para assegurar a qualidade dos serviços prestados. A modernização contínua da infraestrutura, alinhada às necessidades dos cooperados e às transformações digitais, possibilita que a cooperativa de crédito seja mais competitiva e esteja mais preparada para os desafios futuros.
 
