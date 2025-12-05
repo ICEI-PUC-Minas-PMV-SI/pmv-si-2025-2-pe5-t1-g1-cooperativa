@@ -48,4 +48,12 @@ Na quarta etapa, auxiliei o Lucas com a modelagem do banco de dados e implementa
 Por fim, nesta etapa final, contribuí para a elaboração do roteiro e dos slides da apresentação e assumi a responsabilidade pela apresrntação do grupo e introdução ao desenvolvimento durante a apresentação.
 
   
-- **Laura** → 
+- **Laura** → Na primeira etapa, participei das reuniões iniciais de definição estrutural da cooperativa, mas minha principal entrega foi a criação completa da logo, junto com a paleta de cores e a fonte oficial, consolidando a identidade visual. Também apoiei na reunião de requisitos, restrições, organograma e definição geográfica.
+
+Na segunda etapa, fui responsável pela configuração completa do servidor e do cliente DHCP, garantindo o funcionamento correto do serviço na rede. Além disso, elaborei toda a documentação técnica referente ao processo, detalhando configurações, procedimentos e validações realizadas.
+
+Na terceira etapa, realizei o monitoramento do serviço DHCP por meio do Zabbix, acompanhando desempenho e disponibilidade. Também implementei o Zabbix Agent em uma máquina Linux Ubuntu Server configurada como servidor DHCP, garantindo a coleta adequada de métricas e a supervisão contínua do ambiente.
+
+Na quarta etapa, fiquei principalmente responsável pelo design da Cartilha de Segurança, montando toda a parte visual, organização e estilo do material. Também dei apoio na criação e revisão dos textos.
+
+Por fim, na quinta etapa, participei da elaboração do roteiro e dos slides da apresentação final, ficando responsável pelo design dos slides e pela apresentação das Análises de Vulnerabilidades.
