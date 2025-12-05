@@ -25,7 +25,15 @@ Na quarta etapa, participei do planejamento das ações de segurança e contribu
 
 Por fim, na quinta etapa, participei da elaboração do roteiro e dos slides da apresentação final e fiquei responsável por apresentar a seção de Conclusões durante o seminário, sintetizando os objetivos alcançados, os aprendizados e o valor entregue pelo projeto.
 
-- **Lucas** → 
+- **Lucas** → Na primeira etapa, participei das discussões de estruturação da solução, contribuindo para a definição do esquema de endereçamento IP e para o levantamento dos equipamentos necessários tanto para a Matriz quanto para as Filiais. Também auxiliei na elaboração da tabela de cálculo de links, consolidando informações essenciais para dimensionamento e planejamento da rede.
+
+Na segunda etapa, fui responsável pela configuração do servidor web em uma instância EC2 na AWS. Após realizar os ajustes necessários no ambiente, efetuei testes de validação por meio da criação de um arquivo HTML dedicado, garantindo o correto funcionamento do serviço e a disponibilidade do ambiente web.
+
+Na terceira etapa, realizei a configuração da máquina virtual do Serviço Web para integração com o servidor Zabbix, responsável pelo monitoramento centralizado da infraestrutura. Para validar o funcionamento, desenvolvi um ambiente de testes local, onde verifiquei parâmetros de coleta e comunicação. Em seguida, finalizei a integração com o servidor principal, permitindo o acompanhamento contínuo de métricas como tempo de resposta, utilização de disco e estabilidade do serviço.
+
+Na quarta etapa, desenvolvi a modelagem do banco de dados e implementei o CRUD de forma completa, tanto no front-end quanto no back-end, garantindo a consistência das operações e a comunicação adequada entre as camadas da aplicação.
+
+Por fim, nesta etapa final, contribuí para a elaboração do roteiro e dos slides da apresentação e assumi a responsabilidade pela demonstração da aplicação CRUD durante a apresentação, destacando as funcionalidades implementadas e os resultados obtidos ao longo do projeto.
 
 - **Yan** →
 
