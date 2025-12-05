@@ -37,6 +37,15 @@ Por fim, nesta etapa final, contribuí para a elaboração do roteiro e dos slid
 
 - **Yan** →
 
-- **Victor** →  
+- **Victor** →  Na primeira etapa, participei das discussões de estruturação da solução, contribui para a definição do esquema de endereçamento IP e o levantamento dos equipamentos necessários tanto para a Matriz quanto para as Filiais.
+
+Na segunda etapa, fui responsável pela configuração do bqnco de dados PostgreSQL em uma instância EC2 na AWS. E com a configuração do banco realizada, fiz os ajustes necessários no ambiente para que o banco de dados pudesse ser acessado por outras maquinas que fossem autorizadas e pudessem trocar dados com as mesmas. No final, validei o banco de dados ao inserir dados e os mesmos foram acessados por um outro computador que estava com permissão de acesso ao banco de dados.
+
+Na terceira etapa, realizei a configurações na máquina virtual do banco de dados para integração com o servidor Zabbix, responsável pelo monitoramento centralizado da infraestrutura. Para validar o funcionamento, realizei a configuração dos parâmetros nescessarios para a comunicação e formceci acesso de nivel admim ao servidor zabbix para com o banco de dados, onde o mesmo conseguiria coletar todos os dados referentes ap funcionamento do banco de dados 
+
+Na quarta etapa, auxiliei o Lucas com a modelagem do banco de dados e implementação do CRUD de forma completa, tanto no front-end quanto no back-end.
+
+Por fim, nesta etapa final, contribuí para a elaboração do roteiro e dos slides da apresentação e assumi a responsabilidade pela apresrntação do grupo e introdução ao desenvolvimento durante a apresentação.
+
   
 - **Laura** → 
