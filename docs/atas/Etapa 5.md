@@ -1,4 +1,4 @@
-# Cronograma de Atividades – 3ª Etapa
+# Cronograma de Atividades – 5ª Etapa
 
 | Equipe | Carga Horária | Ações/Atividades | Data |
 |--------|---------------|-----------------|------|
@@ -10,7 +10,7 @@
 
 # Atividades Individuais – Resumo Geral do trabalho
 
-- **Carlos** →
+- **Carlos** → Na primeira etapa participei da realização do protótipo no packet trace, no preenchimento inicial das planilhas de equipamento, no preenchimento da planilha de ip e cálculo de links. Na segunda etapa configurei o ftp na AWS e ajudei a Luana pontualmente no AD. Na terceira etapa fiquei responsável pela máquina monitora do zabbix, por conectar ela com as outras instâncias da AWS e ajustar o dashboard de monitoramento. Na quarta etapa participei no início de alguns textos e participei no de vulnerabilidades. Na quinta etapa participei na elaboração do roteiro e pontualmente em ajustes dos slides que apresentei, e fiquei com a apresentação das instalações e monitoramento. A partir da etapa dois fiquei responsável por transferir o que era produzido de documentação pelo grupo para o formato de artigo utilizando LaTeX, inicialmente pela plataforma Overleaf e depois utilizando a ferramenta TexStudio e MiKTeX.
 
 - **Luana** → 
 
